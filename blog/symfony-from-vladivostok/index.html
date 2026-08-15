@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Symfony из Владивостока — Voynere</title>
+  <meta name="description" content="Почему Symfony остаётся основным стеком для новых продуктов Lighttread и как это стыкуется с CMS-наследием.">
+  <link rel="canonical" href="https://voynere.github.io/blog/symfony-from-vladivostok/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/blog/">Блог</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <article class="post">
+      <header class="post-header">
+        <p class="eyebrow"><a href="/blog/">Блог</a></p>
+        <h1>Symfony из Владивостока</h1>
+        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+      </header>
+
+      <div class="post-body">
+        <p>Новые продукты в <a href="https://lighttread.ru">Lighttread</a> я предпочитаю поднимать на Symfony: понятный DI, Messenger, HttpClient, Asset Mapper, нормальный путь к тестам и деплою. CMS остаётся там, где уже есть контент и редакторы — WordPress и Битрикс никто не выкидывает ради моды.</p>
+        <p>Рабочая схема такая:</p>
+        <ul>
+          <li>Symfony — сервисы, витрины с логикой, студийный сайт;</li>
+          <li>WordPress / Битрикс — контентные сети и кастом вокруг темы;</li>
+          <li>TypeScript / Flutter — клиенты, когда нужен отдельный UI-контур.</li>
+        </ul>
+        <p>Владивосток тут ни при чём и при всём сразу: удалёнка по РФ, клиенты по часовым поясам, деплой в CI после пуша. Главное — один понятный стек на продукт и зелёный пайплайн на head SHA, а не зоопарк фреймворков «потому что интересно».</p>
+      </div>
+
+      <p class="post-nav"><a href="/blog/">← Все записи</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

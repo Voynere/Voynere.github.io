@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мониторинг цен как продукт — Voynere</title>
+  <meta name="description" content="Зачем нужен мониторинг цен конкурентов и как устроен рабочий контур вокруг price.smyalichi.ru.">
+  <link rel="canonical" href="https://voynere.github.io/blog/monitoring-prices/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/blog/">Блог</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <article class="post">
+      <header class="post-header">
+        <p class="eyebrow"><a href="/blog/">Блог</a></p>
+        <h1>Мониторинг цен как продукт</h1>
+        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+      </header>
+
+      <div class="post-body">
+        <p>Ритейлу и дистрибуции нужна не «парсилка ради парсинга», а стабильный контур: собрать цены, сравнить с собой, показать отклонения и не развалиться на обновлении вёрстки конкурента.</p>
+        <p>У меня это живёт в двух слоях:</p>
+        <ul>
+          <li>код и пайплайн — репозиторий <a href="https://github.com/Voynere/monitoring-price">monitoring-price</a>;</li>
+          <li>публичный контур — <a href="https://price.smyalichi.ru">price.smyalichi.ru</a>.</li>
+        </ul>
+        <p>Главное в таких сервисах — предсказуемость: понятные источники, логируемые сбои, обновление по расписанию и интерфейс, где человек за минуту видит, что подорожало или уехало вниз. Остальное — инженерия вокруг данных, а не красивая обёртка.</p>
+      </div>
+
+      <p class="post-nav"><a href="/blog/">← Все записи</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
