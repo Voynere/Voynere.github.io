@@ -343,6 +343,200 @@ a {
   font-size: 1.02rem;
 }
 
+.facts a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts a:hover {
+  color: var(--accent-deep);
+}
+
+.lede a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.25rem 1.25rem;
+  padding: 1.2rem 0.15rem;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+.note:hover {
+  background: rgba(255, 252, 247, 0.45);
+  padding-left: 0.45rem;
+}
+
+.note time {
+  grid-row: span 2;
+  padding-top: 0.3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.note-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.note-desc {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.section-more {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.section-more a {
+  text-decoration: none;
+}
+
+.section-more a:hover {
+  color: var(--accent-deep);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 247, 0.45);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-item:hover {
+  border-color: rgba(181, 74, 42, 0.45);
+  transform: translateY(-1px);
+}
+
+.contact-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.contact-value {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vh, 3.5rem) var(--space) clamp(3rem, 8vh, 5rem);
+}
+
+.page-hero {
+  max-width: 38rem;
+  margin-bottom: 2rem;
+}
+
+.page-hero h1,
+.post-header h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.eyebrow a {
+  text-decoration: none;
+}
+
+.post {
+  max-width: 42rem;
+}
+
+.post-meta {
+  margin: 0 0 1.75rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.post-body {
+  font-size: 1.05rem;
+}
+
+.post-body p,
+.post-body ul {
+  margin: 0 0 1.15rem;
+}
+
+.post-body ul {
+  padding-left: 1.2rem;
+}
+
+.post-body li {
+  margin-bottom: 0.4rem;
+}
+
+.post-nav {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.post-nav a {
+  text-decoration: none;
+}
+
+.post-nav a:hover {
+  color: var(--accent-deep);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
 .site-footer {
   display: flex;
   flex-wrap: wrap;
@@ -422,6 +616,19 @@ a {
   }
 
   .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .note {
+    grid-template-columns: 1fr;
+  }
+
+  .note time {
+    grid-row: auto;
+    padding-top: 0;
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 }

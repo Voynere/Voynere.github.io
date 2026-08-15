@@ -4,7 +4,9 @@
     year.textContent = String(new Date().getFullYear());
   }
 
-  const revealTargets = document.querySelectorAll(".project, .facts > div, .section-head");
+  const revealTargets = document.querySelectorAll(
+    ".project, .note, .facts > div, .contact-item, .section-head"
+  );
   if (!("IntersectionObserver" in window) || revealTargets.length === 0) {
     return;
   }

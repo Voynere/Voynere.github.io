@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Блог — Voynere</title>
+  <meta name="description" content="Заметки Eugene Voyner о разработке, деплое и рабочих контурах.">
+  <link rel="canonical" href="https://voynere.github.io/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/blog/" aria-current="page">Блог</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <header class="page-hero">
+      <p class="eyebrow">Блог</p>
+      <h1>Заметки</h1>
+      <p class="lede">Короткие записи о коде, деплое и том, как устроен рабочий контур.</p>
+    </header>
+
+    <ul class="note-list">
+      <li>
+        <a class="note" href="/blog/github-pages-cleanup/">
+          <time datetime="2026-08-15">15 авг 2026</time>
+          <span class="note-title">Как почистил voynere.github.io</span>
+          <span class="note-desc">Убрал SEO-спам, собрал портфолио и починил деплой через Actions.</span>
+        </a>
+      </li>
+      <li>
+        <a class="note" href="/blog/lighttread/">
+          <time datetime="2026-08-15">15 авг 2026</time>
+          <span class="note-title">Lighttread и личный сайт</span>
+          <span class="note-desc">Зачем студии отдельный сайт, а GitHub Pages — личная витрина.</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
