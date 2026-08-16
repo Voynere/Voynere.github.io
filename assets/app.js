@@ -5,12 +5,44 @@
   }
 
   const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("site-nav");
+
+  const setNavOpen = (open) => {
+    document.body.classList.toggle("nav-open", open);
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  };
+
   if (header) {
     const onScroll = () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 12);
+      header.classList.toggle("is-scrolled", window.scrollY > 10);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      setNavOpen(!document.body.classList.contains("nav-open"));
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setNavOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setNavOpen(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 721px)").matches) {
+        setNavOpen(false);
+      }
+    });
   }
 
   const harbor = document.querySelector(".harbor");
@@ -39,16 +71,12 @@
     return;
   }
 
-  revealTargets.forEach((el) => {
-    el.classList.add("will-reveal");
-  });
-
   const style = document.createElement("style");
   style.textContent = `
     .will-reveal {
       opacity: 0;
-      transform: translateY(0.85rem);
-      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(0.7rem);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .will-reveal.is-visible {
       opacity: 1;
@@ -64,6 +92,8 @@
   `;
   document.head.appendChild(style);
 
+  revealTargets.forEach((el) => el.classList.add("will-reveal"));
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -72,11 +102,11 @@
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }
+    { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
   );
 
   revealTargets.forEach((el, index) => {
-    el.style.transitionDelay = `${Math.min(index * 45, 280)}ms`;
+    el.style.transitionDelay = `${Math.min(index * 35, 220)}ms`;
     observer.observe(el);
   });
 })();

@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://voynere.github.io/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#102033">
+  <meta name="theme-color" content="#0b1824">
   <meta property="og:title" content="Voynere — Eugene Voyner">
   <meta property="og:description" content="Symfony, Redis, RabbitMQ, Dart/Flutter и кастом под CMS. Владивосток · Lighttread.">
   <meta property="og:type" content="website">
@@ -59,9 +59,15 @@
 <body>
   <div class="noise" aria-hidden="true"></div>
 
+  <a class="skip-link" href="#main">К содержимому</a>
+
   <header class="site-header">
     <a class="brand" href="/">Voynere</a>
-    <nav class="nav" aria-label="Разделы">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Меню</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Разделы">
       <a href="#work">Работа</a>
       <a href="/blog/">Блог</a>
       <a href="#contact">Контакт</a>
@@ -69,7 +75,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="brand-mark" aria-hidden="true">Voynere</p>
