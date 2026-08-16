@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Идемпотентность в Symfony Messenger — Voynere</title>
+  <meta name="description" content="Как не выполнить сайд‑эффект дважды при retry Messenger и RabbitMQ.">
+  <link rel="canonical" href="https://voynere.github.io/blog/symfony-messenger-idempotency/">
+  <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
+  <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:image" content="https://voynere.github.io/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voynere.github.io/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Идемпотентность в Symfony Messenger",
+    "description": "Как не выполнить сайд‑эффект дважды при retry Messenger и RabbitMQ.",
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16",
+    "author": {
+      "@type": "Person",
+      "name": "Eugene Voyner",
+      "url": "https://voynere.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Eugene Voyner",
+      "url": "https://voynere.github.io/"
+    },
+    "mainEntityOfPage": "https://voynere.github.io/blog/symfony-messenger-idempotency/",
+    "image": "https://voynere.github.io/og.png",
+    "inLanguage": "ru"
+  }
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Меню</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/#experience">Опыт</a>
+      <a href="/blog/">Блог</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/uses/">Инструменты</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <article class="post" data-tags="php symfony redis rabbitmq">
+      <header class="post-header">
+        <p class="eyebrow"><a href="/blog/">Блог</a></p>
+        <h1>Идемпотентность в Symfony Messenger</h1>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">3 мин чтения</span></p>
+        <p class="post-tags"><a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=symfony">symfony</a> · <a href="/blog/?tag=redis">redis</a> · <a href="/blog/?tag=rabbitmq">rabbitmq</a></p>
+      </header>
+
+      <div class="post-body">
+        <h2>Почему это больно</h2>
+        <p>При retry и at‑least‑once доставке хендлер может выполниться дважды. Двойной email, двойное списание, двойной вызов внешнего API — типичная цена «просто бросили в очередь».</p>
+        <h2>Идемпотентный ключ</h2>
+        <p>В сообщение кладу бизнес‑ключ: <code>orderId + eventType</code> или UUID команды. Перед сайд‑эффектом проверяю Redis/БД: ключ уже обработан — выхожу. Успех — пишу ключ с TTL чуть дольше окна ретраев.</p>
+        <h2>Где хранить</h2>
+        <p>Для Symfony Messenger + RabbitMQ удобен Redis: быстрый <code>SET key NX EX</code>. Если нужна строгая история — таблица <code>processed_messages</code> с unique constraint и транзакцией вокруг доменной записи.</p>
+        <h2>Что не путать</h2>
+        <p>Идемпотентность хендлера ≠ дедуп на брокере. Брокер может отдать дубль; защита живёт в приложении. Failed transport и retry — отдельно: не ретраить без разбора ошибки бизнес‑логики.</p>
+      </div>
+
+      <aside class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Ещё по теме</h2>
+        <ul>
+          <li><a href="/blog/queues-and-cache/">Очереди и кэш: RabbitMQ и Redis</a></li>
+          <li><a href="/blog/symfony-from-vladivostok/">Symfony из Владивостока</a></li>
+        </ul>
+      </aside>
+
+      <p class="post-nav">
+        <span class="post-nav-prev"></span>
+        <a class="post-nav-index" href="/blog/">Все записи</a>
+        <a class="post-nav-next" href="/blog/ferma-dv-delivery-stock/">Ferma DV: доставка и остатки →</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/uses/">Инструменты</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
+      <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

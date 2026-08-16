@@ -6,6 +6,14 @@
   <id>https://voynere.github.io/blog/</id>
   <updated>2026-08-16T22:00:00+10:00</updated>
   <author><name>Eugene Voyner</name></author>
+  
+  <entry>
+    <title>Идемпотентность в Symfony Messenger</title>
+    <link href="https://voynere.github.io/blog/symfony-messenger-idempotency/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/symfony-messenger-idempotency/</id>
+    <updated>2026-08-16T12:00:00Z</updated>
+    <summary>Ключ обработки и Redis NX, чтобы retry не удвоил сайд‑эффект.</summary>
+  </entry>
   <entry>
     <title>Ferma DV: доставка и остатки</title>
     <link href="https://voynere.github.io/blog/ferma-dv-delivery-stock/" rel="alternate" type="text/html"/>

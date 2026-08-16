@@ -307,6 +307,31 @@
     postHeader.appendChild(button);
   }
 
+  const postBody = document.querySelector(".post-body");
+  if (postBody && postHeader) {
+    const headings = [...postBody.querySelectorAll("h2")];
+    if (headings.length >= 2) {
+      const toc = document.createElement("nav");
+      toc.className = "toc";
+      toc.setAttribute("aria-label", "Содержание");
+      const list = document.createElement("ol");
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `section-${index + 1}`;
+        }
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent || `Раздел ${index + 1}`;
+        item.appendChild(link);
+        list.appendChild(item);
+      });
+      toc.innerHTML = "<p class=\"toc-label\">Содержание</p>";
+      toc.appendChild(list);
+      postHeader.insertAdjacentElement("afterend", toc);
+    }
+  }
+
   const topBtn = document.createElement("button");
   topBtn.type = "button";
   topBtn.className = "to-top";
