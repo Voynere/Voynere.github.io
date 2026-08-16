@@ -29,6 +29,7 @@ jobs:
           cp -R assets _site/assets
           cp -R blog _site/blog
           cp -R now _site/now
+          cp -R uses _site/uses
           cp -R .well-known _site/.well-known
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

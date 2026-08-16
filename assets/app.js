@@ -321,4 +321,47 @@
   topBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  const shortcuts = document.createElement("div");
+  shortcuts.className = "shortcuts";
+  shortcuts.setAttribute("role", "dialog");
+  shortcuts.setAttribute("aria-modal", "true");
+  shortcuts.setAttribute("aria-label", "Горячие клавиши");
+  shortcuts.hidden = true;
+  shortcuts.innerHTML = `
+    <div class="shortcuts-panel">
+      <h2>Клавиши</h2>
+      <dl>
+        <div><dt>/</dt><dd>Поиск в блоге</dd></div>
+        <div><dt>?</dt><dd>Эта справка</dd></div>
+        <div><dt>Esc</dt><dd>Закрыть меню / справку</dd></div>
+      </dl>
+      <p class="shortcuts-hint">Нажмите Esc или кликните фон</p>
+    </div>
+  `;
+  document.body.appendChild(shortcuts);
+
+  const setShortcutsOpen = (open) => {
+    shortcuts.classList.toggle("is-open", open);
+    shortcuts.hidden = !open;
+  };
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "?" && !event.metaKey && !event.ctrlKey && !event.altKey) {
+      const target = event.target;
+      if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
+      event.preventDefault();
+      setShortcutsOpen(!shortcuts.classList.contains("is-open"));
+      return;
+    }
+    if (event.key === "Escape") {
+      setShortcutsOpen(false);
+    }
+  });
+
+  shortcuts.addEventListener("click", (event) => {
+    if (event.target === shortcuts) {
+      setShortcutsOpen(false);
+    }
+  });
 })();

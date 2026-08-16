@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Сейчас — Voynere</title>
-  <meta name="description" content="Чем сейчас занят Eugene Voyner: Ferma DV, Lighttread, личный сайт.">
-  <link rel="canonical" href="https://voynere.github.io/now/">
+  <title>Инструменты — Voynere</title>
+  <meta name="description" content="Чем пользуюсь в работе: стек, редактор, деплой, инфраструктура.">
+  <link rel="canonical" href="https://voynere.github.io/uses/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -35,8 +35,8 @@
       <a href="/#work">Работа</a>
       <a href="/#experience">Опыт</a>
       <a href="/blog/">Блог</a>
-      <a href="/now/" aria-current="page">Сейчас</a>
-      <a href="/uses/">Инструменты</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/uses/" aria-current="page">Инструменты</a>
       <a href="/#contact">Контакт</a>
       <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
     </nav>
@@ -44,31 +44,39 @@
 
   <main class="page" id="main">
     <header class="page-hero">
-      <p class="eyebrow">Now</p>
-      <h1>Сейчас</h1>
-      <p class="lede">Короткий срез фокуса — обновляю, когда меняется рабочий контур.</p>
-      <p class="post-meta"><time datetime="2026-08-16">обновлено 16 августа 2026</time></p>
+      <p class="eyebrow">Uses</p>
+      <h1>Инструменты</h1>
+      <p class="lede">Стек и окружение, на которых реально крутится прод — без зоопарка «на попробовать».</p>
     </header>
 
-    <div class="post-body now-body">
-      <p><strong>В работе</strong></p>
-      <ul>
-        <li><a href="https://github.com/Voynere/ferma-dv-app">Ferma DV App</a> — React Native e‑commerce: каталог через BFF, зоны доставки, остатки по складу, push и релизы.</li>
-        <li><a href="https://lighttread.ru">Lighttread</a> — студия: Symfony, CMS‑кастом, мобильные и сопровождение.</li>
-        <li><a href="/">voynere.github.io</a> — личная витрина и заметки о рабочих решениях.</li>
-      </ul>
-      <p><strong>Недавно закрыл</strong></p>
-      <ul>
-        <li>Почистил и наполнил GitHub Pages: портфолио, блог, поиск, теги, деплой через Actions.</li>
-        <li>Зафиксировал опыт RN на Ferma DV: <a href="/blog/ferma-dv-react-native/">обзор</a> и <a href="/blog/ferma-dv-delivery-stock/">доставка/остатки</a>.</li>
-      </ul>
-      <p><strong>Читаю / кручу</strong></p>
-      <ul>
-        <li>Граница BFF ↔ мобильный клиент: что считать на сервере, что кэшировать на устройстве.</li>
-        <li>Стабильные кастом‑контуры вокруг WordPress и Битрикс без «большого реврайта».</li>
-      </ul>
-      <p>Контакт: <a href="mailto:info@lighttread.ru">info@lighttread.ru</a> · <a href="/#contact">все ссылки</a></p>
-    </div>
+    <dl class="uses-list">
+      <div>
+        <dt>Backend</dt>
+        <dd>PHP, Symfony, Redis, RabbitMQ / Messenger, PostgreSQL/MySQL по проекту</dd>
+      </div>
+      <div>
+        <dt>CMS</dt>
+        <dd>WordPress и 1С-Битрикс — темы, импортеры, кастом без полного реврайта</dd>
+      </div>
+      <div>
+        <dt>Mobile</dt>
+        <dd>React Native + TypeScript (Ferma DV), Flutter + Dart (студийные клиенты)</dd>
+      </div>
+      <div>
+        <dt>Редактор</dt>
+        <dd>Cursor, git, GitHub / Gitea Actions</dd>
+      </div>
+      <div>
+        <dt>Деплой</dt>
+        <dd>Push → CI на head SHA → зелёный пайплайн. GitHub Pages для этого сайта</dd>
+      </div>
+      <div>
+        <dt>Локация</dt>
+        <dd>Владивосток, удалёнка по РФ</dd>
+      </div>
+    </dl>
+
+    <p class="section-more"><a href="/now/">Что в фокусе сейчас →</a></p>
   </main>
 
   <footer class="site-footer">
