@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Voynere — заметки</title>
+    <link>https://voynere.github.io/blog/</link>
+    <description>Заметки Eugene Voyner о разработке, деплое и рабочих контурах.</description>
+    <language>ru</language>
+    <atom:link href="https://voynere.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Очереди и кэш: RabbitMQ и Redis</title>
+      <link>https://voynere.github.io/blog/queues-and-cache/</link>
+      <guid>https://voynere.github.io/blog/queues-and-cache/</guid>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Почему в Symfony-контуре рядом с приложением почти всегда стоят Redis и RabbitMQ.</description>
+    </item>
+    <item>
+      <title>Symfony из Владивостока</title>
+      <link>https://voynere.github.io/blog/symfony-from-vladivostok/</link>
+      <guid>https://voynere.github.io/blog/symfony-from-vladivostok/</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Новые продукты на Symfony, CMS там где уже есть контент.</description>
+    </item>
+    <item>
+      <title>Кастом под WordPress и Битрикс</title>
+      <link>https://voynere.github.io/blog/wordpress-bitrix-custom/</link>
+      <guid>https://voynere.github.io/blog/wordpress-bitrix-custom/</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Темы, импортеры и отдельные репо под медицинские сети.</description>
+    </item>
+    <item>
+      <title>Мониторинг цен как продукт</title>
+      <link>https://voynere.github.io/blog/monitoring-prices/</link>
+      <guid>https://voynere.github.io/blog/monitoring-prices/</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Сбор, сравнение и публичный контур price.smyalichi.ru.</description>
+    </item>
+    <item>
+      <title>Как почистил voynere.github.io</title>
+      <link>https://voynere.github.io/blog/github-pages-cleanup/</link>
+      <guid>https://voynere.github.io/blog/github-pages-cleanup/</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Убрал SEO-спам, собрал портфолио и починил деплой через Actions.</description>
+    </item>
+    <item>
+      <title>Lighttread и личный сайт</title>
+      <link>https://voynere.github.io/blog/lighttread/</link>
+      <guid>https://voynere.github.io/blog/lighttread/</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <description>Зачем студии отдельный сайт, а GitHub Pages — личная витрина.</description>
+    </item>
+  </channel>
+</rss>

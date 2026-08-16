@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Мониторинг цен как продукт — Voynere</title>
-  <meta name="description" content="Зачем нужен мониторинг цен конкурентов и как устроен рабочий контур вокруг price.smyalichi.ru.">
-  <link rel="canonical" href="https://voynere.github.io/blog/monitoring-prices/">
+  <title>Очереди и кэш: RabbitMQ и Redis — Voynere</title>
+  <meta name="description" content="Почему в Symfony-контуре рядом с приложением почти всегда стоят Redis и RabbitMQ.">
+  <link rel="canonical" href="https://voynere.github.io/blog/queues-and-cache/">
+  <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,18 +30,18 @@
     <article class="post">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
-        <h1>Мониторинг цен как продукт</h1>
-        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+        <h1>Очереди и кэш: RabbitMQ и Redis</h1>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time></p>
       </header>
 
       <div class="post-body">
-        <p>Ритейлу и дистрибуции нужна не «парсилка ради парсинга», а стабильный контур: собрать цены, сравнить с собой, показать отклонения и не развалиться на обновлении вёрстки конкурента.</p>
-        <p>У меня это живёт в двух слоях:</p>
+        <p>Когда продукт выходит за рамки «страница + форма», одного PHP-процесса мало. Импорт прайсов, письма, вебхуки, пересчёты — всё это лучше уводить из HTTP-запроса.</p>
+        <p>В моём Symfony-контуре обычно так:</p>
         <ul>
-          <li>код и пайплайн — репозиторий <a href="https://github.com/Voynere/monitoring-price">monitoring-price</a>;</li>
-          <li>публичный контур — <a href="https://price.smyalichi.ru">price.smyalichi.ru</a>.</li>
+          <li><strong>RabbitMQ</strong> — транспорт для Messenger: задачи живут в очереди, воркеры едят их отдельно от веба;</li>
+          <li><strong>Redis</strong> — кэш, сессии, быстрые блокировки и счётчики, чтобы не бить базу на каждом шаге.</li>
         </ul>
-        <p>Главное в таких сервисах — предсказуемость: понятные источники, логируемые сбои, обновление по расписанию и интерфейс, где человек за минуту видит, что подорожало или уехало вниз. Остальное — инженерия вокруг данных, а не красивая обёртка.</p>
+        <p>Правило простое: Redis — для «помнить быстро», RabbitMQ — для «сделать позже и надёжно». Если смешать роли, получится хрупкий зоопарк. Если разделить — деплой и отладка остаются предсказуемыми.</p>
       </div>
 
       <p class="post-nav"><a href="/blog/">← Все записи</a></p>
