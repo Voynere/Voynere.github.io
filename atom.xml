@@ -4,14 +4,22 @@
   <link href="https://voynere.github.io/blog/" rel="alternate" type="text/html"/>
   <link href="https://voynere.github.io/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://voynere.github.io/blog/</id>
-  <updated>2026-08-16T21:00:00+10:00</updated>
+  <updated>2026-08-16T22:00:00+10:00</updated>
   <author><name>Eugene Voyner</name></author>
+  <entry>
+    <title>Ferma DV: доставка и остатки</title>
+    <link href="https://voynere.github.io/blog/ferma-dv-delivery-stock/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/ferma-dv-delivery-stock/</id>
+    <updated>2026-08-16T12:00:00+10:00</updated>
+    <summary>В Ferma DV каталог зависит от склада зоны доставки. Если показать «весь МойСклад», пользователь наберёт то, чего в его зоне нет — и получит отмену или долгую поддержку. Правило видимости. Хелпер isSellableHere смотрит stockByStore на primary склад зоны. Нет карты остатков — товар</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
   <entry>
     <title>React Native: опыт Ferma DV</title>
     <link href="https://voynere.github.io/blog/ferma-dv-react-native/" rel="alternate" type="text/html"/>
     <id>https://voynere.github.io/blog/ferma-dv-react-native/</id>
     <updated>2026-08-16T12:00:00+10:00</updated>
-    <summary>Ferma DV App — React Native‑клиент фермерского e‑commerce на ferma-dv.ru : каталог, корзина, checkout, зоны доставки, бонусы и push. Стек на клиенте: React Native 0.81 , TypeScript, React Navigation, Zustand, Firebase Messaging + Crashlytics, Keychain, turf для «точка в полигоне» зоны доставки. BFF,</summary>
+    <summary>Ferma DV App — React Native‑клиент фермерского e‑commerce на ferma-dv.ru : каталог, корзина, checkout, зоны доставки, бонусы и push. Стек на клиенте: React Native 0.81 , TypeScript, React Navigation, Zustand, Firebase Messaging + Crashlytics, Keychain, turf для «точка в полигоне»</summary>
     <author><name>Eugene Voyner</name></author>
   </entry>
   <entry>

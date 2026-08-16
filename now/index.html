@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сейчас — Voynere</title>
+  <meta name="description" content="Чем сейчас занят Eugene Voyner: Ferma DV, Lighttread, личный сайт.">
+  <link rel="canonical" href="https://voynere.github.io/now/">
+  <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
+  <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:image" content="https://voynere.github.io/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voynere.github.io/og.png">
+  <meta name="theme-color" content="#0b1824">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Меню</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/#experience">Опыт</a>
+      <a href="/blog/">Блог</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <header class="page-hero">
+      <p class="eyebrow">Now</p>
+      <h1>Сейчас</h1>
+      <p class="lede">Короткий срез фокуса — обновляю, когда меняется рабочий контур.</p>
+      <p class="post-meta"><time datetime="2026-08-16">обновлено 16 августа 2026</time></p>
+    </header>
+
+    <div class="post-body now-body">
+      <p><strong>В работе</strong></p>
+      <ul>
+        <li><a href="https://github.com/Voynere/ferma-dv-app">Ferma DV App</a> — React Native e‑commerce: каталог через BFF, зоны доставки, остатки по складу, push и релизы.</li>
+        <li><a href="https://lighttread.ru">Lighttread</a> — студия: Symfony, CMS‑кастом, мобильные и сопровождение.</li>
+        <li><a href="/">voynere.github.io</a> — личная витрина и заметки о рабочих решениях.</li>
+      </ul>
+      <p><strong>Недавно закрыл</strong></p>
+      <ul>
+        <li>Почистил и наполнил GitHub Pages: портфолио, блог, поиск, теги, деплой через Actions.</li>
+        <li>Зафиксировал опыт RN на Ferma DV: <a href="/blog/ferma-dv-react-native/">обзор</a> и <a href="/blog/ferma-dv-delivery-stock/">доставка/остатки</a>.</li>
+      </ul>
+      <p><strong>Читаю / кручу</strong></p>
+      <ul>
+        <li>Граница BFF ↔ мобильный клиент: что считать на сервере, что кэшировать на устройстве.</li>
+        <li>Стабильные кастом‑контуры вокруг WordPress и Битрикс без «большого реврайта».</li>
+      </ul>
+      <p>Контакт: <a href="mailto:info@lighttread.ru">info@lighttread.ru</a> · <a href="/#contact">все ссылки</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
+      <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

@@ -6,18 +6,25 @@
     <description>Заметки Eugene Voyner о разработке, деплое и рабочих контурах.</description>
     <language>ru</language>
     <atom:link href="https://voynere.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <item>
+    <item>
+      <title>Ferma DV: доставка и остатки</title>
+      <link>https://voynere.github.io/blog/ferma-dv-delivery-stock/</link>
+      <guid>https://voynere.github.io/blog/ferma-dv-delivery-stock/</guid>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
+      <description>Почему склад зоны доставки нельзя смешивать с корзиной — и как прячем непродаваемое.</description>
+    </item>
+    <item>
       <title>React Native: опыт Ferma DV</title>
       <link>https://voynere.github.io/blog/ferma-dv-react-native/</link>
       <guid>https://voynere.github.io/blog/ferma-dv-react-native/</guid>
-      <pubDate>Sun, 16 Aug 2026 21:00:00 +1000</pubDate>
-      <description>BFF-каталог, зоны доставки, FCM и релизы — React Native e-commerce Ferma DV.</description>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
+      <description>BFF-каталог, зоны доставки, FCM и релизы Android/iOS.</description>
     </item>
     <item>
       <title>Крафт личного сайта</title>
       <link>https://voynere.github.io/blog/site-craft/</link>
       <guid>https://voynere.github.io/blog/site-craft/</guid>
-      <pubDate>Sun, 16 Aug 2026 20:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Статика, деплой и UI без лишнего фреймворка.</description>
     </item>
     <item>
@@ -31,42 +38,42 @@
       <title>Очереди и кэш: RabbitMQ и Redis</title>
       <link>https://voynere.github.io/blog/queues-and-cache/</link>
       <guid>https://voynere.github.io/blog/queues-and-cache/</guid>
-      <pubDate>Sun, 16 Aug 2026 00:00:00 +1000</pubDate>
-      <description>Почему в Symfony-контуре рядом с приложением почти всегда стоят Redis и RabbitMQ.</description>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
+      <description>Messenger, воркеры и быстрый кэш рядом с Symfony.</description>
     </item>
     <item>
       <title>Symfony из Владивостока</title>
       <link>https://voynere.github.io/blog/symfony-from-vladivostok/</link>
       <guid>https://voynere.github.io/blog/symfony-from-vladivostok/</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Новые продукты на Symfony, CMS там где уже есть контент.</description>
     </item>
     <item>
       <title>Кастом под WordPress и Битрикс</title>
       <link>https://voynere.github.io/blog/wordpress-bitrix-custom/</link>
       <guid>https://voynere.github.io/blog/wordpress-bitrix-custom/</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Темы, импортеры и отдельные репо под медицинские сети.</description>
     </item>
     <item>
       <title>Мониторинг цен как продукт</title>
       <link>https://voynere.github.io/blog/monitoring-prices/</link>
       <guid>https://voynere.github.io/blog/monitoring-prices/</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Сбор, сравнение и публичный контур price.smyalichi.ru.</description>
     </item>
     <item>
       <title>Как почистил voynere.github.io</title>
       <link>https://voynere.github.io/blog/github-pages-cleanup/</link>
       <guid>https://voynere.github.io/blog/github-pages-cleanup/</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Убрал SEO-спам, собрал портфолио и починил деплой через Actions.</description>
     </item>
     <item>
       <title>Lighttread и личный сайт</title>
       <link>https://voynere.github.io/blog/lighttread/</link>
       <guid>https://voynere.github.io/blog/lighttread/</guid>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 +1000</pubDate>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
       <description>Зачем студии отдельный сайт, а GitHub Pages — личная витрина.</description>
     </item>
   </channel>
