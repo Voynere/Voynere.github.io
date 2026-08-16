@@ -3,6 +3,8 @@
 Личный сайт [Eugene Voyner](https://github.com/Voynere) на GitHub Pages.
 
 - Live: https://voynere.github.io/
+- Сейчас: https://voynere.github.io/now/
+- Инструменты: https://voynere.github.io/uses/
 - Студия: https://lighttread.ru/
 - Контакт: info@lighttread.ru
 - RSS: https://voynere.github.io/rss.xml
