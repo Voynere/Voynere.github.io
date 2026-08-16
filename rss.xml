@@ -7,6 +7,13 @@
     <language>ru</language>
     <atom:link href="https://voynere.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Flutter и Dart в рабочем контуре</title>
+      <link>https://voynere.github.io/blog/flutter-and-dart/</link>
+      <guid>https://voynere.github.io/blog/flutter-and-dart/</guid>
+      <pubDate>Sun, 16 Aug 2026 12:00:00 +1000</pubDate>
+      <description>Мобильный слой к Symfony и CMS в одной студии.</description>
+    </item>
+    <item>
       <title>Очереди и кэш: RabbitMQ и Redis</title>
       <link>https://voynere.github.io/blog/queues-and-cache/</link>
       <guid>https://voynere.github.io/blog/queues-and-cache/</guid>

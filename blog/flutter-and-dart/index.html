@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Как почистил voynere.github.io — Voynere</title>
-  <meta name="description" content="Убрал SEO-спам с GitHub Pages, собрал портфолио и починил деплой через Actions.">
-  <link rel="canonical" href="https://voynere.github.io/blog/github-pages-cleanup/">
+  <title>Flutter и Dart в рабочем контуре — Voynere</title>
+  <meta name="description" content="Когда мобильный клиент нужен рядом с Symfony и CMS — беру Flutter и Dart.">
+  <link rel="canonical" href="https://voynere.github.io/blog/flutter-and-dart/">
+  <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,25 +30,25 @@
     <article class="post">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
-        <h1>Как почистил voynere.github.io</h1>
-        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+        <h1>Flutter и Dart в рабочем контуре</h1>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time></p>
       </header>
 
       <div class="post-body">
-        <p>На <a href="https://voynere.github.io/">voynere.github.io</a> лежала заглушка со скрытой ссылкой — классический SEO-мусор. Параллельно GitHub Pages падал: legacy-сборка конфликтовала с Actions workflow.</p>
-        <p>Что сделал:</p>
+        <p>Веб закрывает витрину и админку. Когда нужен клиент в кармане — один кодбаза на Android и iOS — беру <strong>Flutter</strong> и <strong>Dart</strong>.</p>
+        <p>Как это стыкуется с остальным стеком:</p>
         <ul>
-          <li>выкинул спам и собрал нормальное портфолио на статике;</li>
-          <li>переключил Pages на деплой через GitHub Actions;</li>
-          <li>добавил `.nojekyll`, чтобы не гонять лишний Jekyll.</li>
+          <li>Symfony отдаёт API и бизнес-логику;</li>
+          <li>Redis / RabbitMQ держат кэш и фоновые задачи на бэке;</li>
+          <li>Flutter — UI, офлайн-сценарии и публикация в сторы.</li>
         </ul>
-        <p>Для user-сайта (`username.github.io`) достаточно HTML/CSS/JS и короткого workflow: checkout → artifact → deploy-pages. Без фреймворка, без лишней сборки.</p>
+        <p>В <a href="https://lighttread.ru/services/flutter">Lighttread</a> это отдельная услуга: проектирование, реализация, публикация и сопровождение. Не «приложение ради приложения», а мобильный слой к уже работающему продукту.</p>
       </div>
 
       <p class="post-nav">
-      <a class="post-nav-prev" href="/blog/lighttread/">← Lighttread и личный сайт</a>
+      <a class="post-nav-prev" href="/blog/queues-and-cache/">← Очереди и кэш: RabbitMQ и Redis</a>
       <a class="post-nav-index" href="/blog/">Все записи</a>
-      <a class="post-nav-next" href="/blog/monitoring-prices/">Мониторинг цен как продукт →</a>
+      <span class="post-nav-next"></span>
       </p>
     </article>
   </main>
