@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Voynere">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b7c9d6"/>
+      <stop offset="48%" stop-color="#ebe3d6"/>
+      <stop offset="100%" stop-color="#d2e0d6"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0b1824"/>
+      <stop offset="70%" stop-color="#254457"/>
+      <stop offset="100%" stop-color="#b84322"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="80" r="220" fill="#9db8c9" opacity="0.45"/>
+  <circle cx="160" cy="560" r="180" fill="#b9cebf" opacity="0.4"/>
+  <rect x="72" y="72" width="1056" height="486" fill="none" stroke="#0b1824" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="110" y="250" font-family="Syne, Arial, sans-serif" font-size="120" font-weight="800" fill="url(#mark)" letter-spacing="-6">Voynere</text>
+  <text x="110" y="330" font-family="Syne, Arial, sans-serif" font-size="42" font-weight="700" fill="#0b1824">Eugene Voyner</text>
+  <text x="110" y="390" font-family="Literata, Georgia, serif" font-size="28" fill="#3a5164">PHP · Symfony · Redis · RabbitMQ · Dart · Flutter</text>
+  <text x="110" y="500" font-family="Syne, Arial, sans-serif" font-size="24" font-weight="700" fill="#b84322">Vladivostok · Lighttread</text>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "Voynere — Eugene Voyner",
+  "short_name": "Voynere",
+  "description": "PHP-разработчик из Владивостока. Symfony, Redis, RabbitMQ, Dart, Flutter.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "ru",
+  "background_color": "#ebe3d6",
+  "theme_color": "#0b1824",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

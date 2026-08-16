@@ -1017,3 +1017,73 @@ body.nav-open .nav-toggle-bars::after {
     transform: none;
   }
 }
+
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 3px;
+  pointer-events: none;
+  background: transparent;
+}
+
+.read-progress-bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent), #d47a52);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-progress-bar {
+    transition: none;
+  }
+}
+
+@media print {
+  .noise,
+  .skip-link,
+  .nav-toggle,
+  .site-header,
+  .hero-visual,
+  .read-progress,
+  .cta-row,
+  .site-footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .page,
+  .section,
+  .post {
+    max-width: none;
+    padding: 0;
+  }
+
+  .brand-mark,
+  .hero h1,
+  .lede,
+  .cta-row,
+  .hero-visual {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    color: #000 !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+  }
+}
+

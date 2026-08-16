@@ -7,6 +7,13 @@
     <language>ru</language>
     <atom:link href="https://voynere.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Крафт личного сайта</title>
+      <link>https://voynere.github.io/blog/site-craft/</link>
+      <guid>https://voynere.github.io/blog/site-craft/</guid>
+      <pubDate>Sun, 16 Aug 2026 20:00:00 +1000</pubDate>
+      <description>Статика, деплой и UI без лишнего фреймворка.</description>
+    </item>
+    <item>
       <title>Flutter и Dart в рабочем контуре</title>
       <link>https://voynere.github.io/blog/flutter-and-dart/</link>
       <guid>https://voynere.github.io/blog/flutter-and-dart/</guid>

@@ -5,4 +5,5 @@
 - Live: https://voynere.github.io/
 - Студия: https://lighttread.ru/
 - Контакт: info@lighttread.ru
-- Стек: статический HTML/CSS/JS
+- RSS: https://voynere.github.io/rss.xml
+- Стек: статический HTML/CSS/JS, деплой через GitHub Actions
