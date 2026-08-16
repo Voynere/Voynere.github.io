@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Крафт личного сайта — Voynere</title>
-  <meta name="description" content="Как собираю voynere.github.io: статика, деплой, UI и заметки без лишнего фреймворка.">
-  <link rel="canonical" href="https://voynere.github.io/blog/site-craft/">
+  <title>React Native: опыт Ferma DV — Voynere</title>
+  <meta name="description" content="Каталог, доставка, бонусы и BFF — мобильный e‑commerce фермы.">
+  <link rel="canonical" href="https://voynere.github.io/blog/ferma-dv-react-native/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -22,8 +22,8 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Крафт личного сайта",
-    "description": "Как собираю voynere.github.io: статика, деплой, UI и заметки без лишнего фреймворка.",
+    "headline": "React Native: опыт Ferma DV",
+    "description": "Каталог, доставка, бонусы и BFF — мобильный e‑commerce фермы.",
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16",
     "author": {
@@ -36,7 +36,7 @@
       "name": "Eugene Voyner",
       "url": "https://voynere.github.io/"
     },
-    "mainEntityOfPage": "https://voynere.github.io/blog/site-craft/",
+    "mainEntityOfPage": "https://voynere.github.io/blog/ferma-dv-react-native/",
     "image": "https://voynere.github.io/og.png",
     "inLanguage": "ru"
   }
@@ -62,37 +62,39 @@
   </header>
 
   <main class="page" id="main">
-    <article class="post" data-tags="site pages ui">
+    <article class="post" data-tags="react-native typescript mobile product">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
-        <h1>Крафт личного сайта</h1>
+        <h1>React Native: опыт Ferma DV</h1>
         <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">1 мин чтения</span></p>
-        <p class="post-tags"><a href="/blog/?tag=site">site</a> · <a href="/blog/?tag=pages">pages</a> · <a href="/blog/?tag=ui">ui</a></p>
+        <p class="post-tags"><a href="/blog/?tag=react-native">react-native</a> · <a href="/blog/?tag=typescript">typescript</a> · <a href="/blog/?tag=mobile">mobile</a> · <a href="/blog/?tag=product">product</a></p>
       </header>
 
       <div class="post-body">
-        <p>Личный сайт для меня — не витрина ради витрины. Это быстрый контур: текст, ссылки, деплой за минуту, без CMS и без сборщика.</p>
-        <p>Что держу в фокусе:</p>
+<p><a href="https://github.com/Voynere/ferma-dv-app">Ferma DV App</a> — React Native‑клиент фермерского e‑commerce: каталог молочки и сопутствующих товаров, корзина, оформление, зоны доставки, бонусная программа и push.</p>
+        <p>Стек на клиенте: <strong>React Native 0.81</strong>, TypeScript, React Navigation, Zustand, Firebase (Messaging + Crashlytics), Keychain, turf для проверки адреса в полигоне доставки.</p>
+        <p>Что важно по опыту:</p>
         <ul>
-          <li>статика на GitHub Pages и зелёный Actions на каждый push;</li>
-          <li>читаемый UI на телефоне — меню, плотность, контраст;</li>
-          <li>заметки как рабочий журнал, а не «контент-план».</li>
+          <li>тяжёлую сборку каталога (остатки, акции, картинки) держим на <strong>BFF</strong>, а не в телефоне — на устройстве тонкий page‑cache в Zustand;</li>
+          <li>смена зоны доставки сбрасывает кэш: иначе пользователь видит чужие остатки и цены;</li>
+          <li>картинки идут через <code>OptimizedImage</code> с URL из BFF; пер‑карточечный resolve в МойСклад — только fallback;</li>
+          <li>отдельные контуры: SMS/OTP‑вход, бонусы, подписка на наличие, напоминания о подарках, сборки APK/AAB/IPA.</li>
         </ul>
-        <p>Студия остаётся на <a href="https://lighttread.ru">lighttread.ru</a>. Здесь — автор, стек и короткие записи. Если страница открывается быстро и не врёт про то, чем я занимаюсь — задача выполнена.</p>
+        <p>Вывод простой: мобильный e‑commerce живёт или умирает на границе «телефон ↔ бэкенд». Если агрегировать каталог на устройстве — FPS и батарея страдают. Если отдать агрегацию BFF и оставить UI быстрым — продукт ощущается цельным.</p>
       </div>
 
-                  <aside class="related" aria-labelledby="related-title">
+            <aside class="related" aria-labelledby="related-title">
         <h2 id="related-title">Ещё по теме</h2>
         <ul>
-          <li><a href="/blog/github-pages-cleanup/">Как почистил voynere.github.io</a></li>
-          <li><a href="/blog/ferma-dv-react-native/">React Native: опыт Ferma DV</a></li>
+          <li><a href="/blog/flutter-and-dart/">Flutter и Dart в рабочем контуре</a></li>
+          <li><a href="/blog/monitoring-prices/">Мониторинг цен как продукт</a></li>
         </ul>
       </aside>
 
       <p class="post-nav">
-      <a class="post-nav-prev" href="/blog/ferma-dv-react-native/">← React Native: опыт Ferma DV</a>
+      <span class="post-nav-prev"></span>
       <a class="post-nav-index" href="/blog/">Все записи</a>
-      <a class="post-nav-next" href="/blog/flutter-and-dart/">Flutter и Dart в рабочем контуре →</a>
+      <a class="post-nav-next" href="/blog/site-craft/">Крафт личного сайта →</a>
       </p>
     </article>
   </main>

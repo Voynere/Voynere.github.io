@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Voynere — Eugene Voyner</title>
-  <meta name="description" content="Eugene Voyner — PHP-разработчик из Владивостока. Symfony, Redis, RabbitMQ, Dart, Flutter, WordPress и 1С-Битрикс.">
+  <meta name="description" content="Eugene Voyner — PHP-разработчик из Владивостока. Symfony, Redis, RabbitMQ, React Native, Dart, Flutter, WordPress и 1С-Битрикс.">
   <meta name="author" content="Eugene Voyner">
   <link rel="canonical" href="https://voynere.github.io/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://voynere.github.io/og.png">
   <meta name="theme-color" content="#0b1824">
   <meta property="og:title" content="Voynere — Eugene Voyner">
-  <meta property="og:description" content="Symfony, Redis, RabbitMQ, Dart/Flutter и кастом под CMS. Владивосток · Lighttread.">
+  <meta property="og:description" content="Symfony, Redis, RabbitMQ, React Native, Dart/Flutter и кастом под CMS. Владивосток · Lighttread.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://voynere.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,8 @@
       "Symfony",
       "Redis",
       "RabbitMQ",
+      "React Native",
+      "TypeScript",
       "Dart",
       "Flutter",
       "WordPress",
@@ -86,7 +88,7 @@
       <div class="hero-copy">
         <p class="brand-mark" aria-hidden="true">Voynere</p>
         <h1 id="hero-title">PHP и веб-продукты с берега Тихого океана</h1>
-        <p class="lede">Eugene Voyner — разработчик из Владивостока, руководитель разработки в <a href="https://lighttread.ru">Lighttread</a>. Symfony, очереди, мобильные на Flutter и кастом под CMS.</p>
+        <p class="lede">Eugene Voyner — разработчик из Владивостока, руководитель разработки в <a href="https://lighttread.ru">Lighttread</a>. Symfony, очереди, мобильные на React Native и Flutter, кастом под CMS.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#work">Смотреть проекты</a>
           <a class="btn btn-ghost" href="#contact">Написать</a>
@@ -109,7 +111,7 @@
     <span class="c-kw">public function</span> <span class="c-fn">ship</span>(): <span class="c-type">Product</span>
     {
         <span class="c-kw">return</span> <span class="c-fn">deploy</span>(
-            stack: [<span class="c-str">'symfony'</span>, <span class="c-str">'redis'</span>, <span class="c-str">'rabbitmq'</span>, <span class="c-str">'flutter'</span>],
+            stack: [<span class="c-str">'symfony'</span>, <span class="c-str">'redis'</span>, <span class="c-str">'rabbitmq'</span>, <span class="c-str">'react-native'</span>, <span class="c-str">'flutter'</span>],
             from: <span class="c-str">'vladivostok'</span>,
         );
     }
@@ -166,19 +168,19 @@
           </a>
         </li>
         <li>
+          <a class="project" href="https://github.com/Voynere/ferma-dv-app" rel="noopener noreferrer" target="_blank">
+            <span class="project-meta">React Native</span>
+            <span class="project-name">Ferma DV App</span>
+            <span class="project-desc">Мобильное приложение фермерского e‑commerce: каталог, доставка, бонусы, push.</span>
+            <span class="project-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
           <a class="project" href="https://lighttread.ru/services/flutter" rel="noopener noreferrer" target="_blank">
             <span class="project-meta">Dart · Flutter</span>
             <span class="project-name">Flutter apps</span>
             <span class="project-desc">Кроссплатформенные приложения Android/iOS в контуре Lighttread.</span>
-                      <span class="project-arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="project" href="https://github.com/Voynere/ferma-dv-app" rel="noopener noreferrer" target="_blank">
-            <span class="project-meta">TypeScript</span>
-            <span class="project-name">Ferma DV App</span>
-            <span class="project-desc">Клиентское приложение для фермерского контура.</span>
-                      <span class="project-arrow" aria-hidden="true">→</span>
+            <span class="project-arrow" aria-hidden="true">→</span>
           </a>
         </li>
         <li>
@@ -186,7 +188,7 @@
             <span class="project-meta">live</span>
             <span class="project-name">price.smyalichi.ru</span>
             <span class="project-desc">Публичный контур мониторинга цен.</span>
-                      <span class="project-arrow" aria-hidden="true">→</span>
+            <span class="project-arrow" aria-hidden="true">→</span>
           </a>
         </li>
       </ul>
@@ -198,6 +200,13 @@
         <p>Короткие записи о коде, деплое и рабочих контурах.</p>
       </div>
       <ul class="note-list">
+        <li>
+          <a class="note" href="/blog/ferma-dv-react-native/">
+            <time datetime="2026-08-16">16 авг 2026</time>
+            <span class="note-title">React Native: опыт Ferma DV</span>
+            <span class="note-desc">Каталог, доставка, бонусы и BFF — мобильный e‑commerce фермы.</span>
+          </a>
+        </li>
         <li>
           <a class="note" href="/blog/site-craft/">
             <time datetime="2026-08-16">16 авг 2026</time>
@@ -212,13 +221,6 @@
             <span class="note-desc">Мобильный слой к Symfony и CMS в одной студии.</span>
           </a>
         </li>
-        <li>
-          <a class="note" href="/blog/queues-and-cache/">
-            <time datetime="2026-08-16">16 авг 2026</time>
-            <span class="note-title">Очереди и кэш: RabbitMQ и Redis</span>
-            <span class="note-desc">Messenger, воркеры и быстрый кэш рядом с Symfony.</span>
-          </a>
-        </li>
       </ul>
       <p class="section-more"><a href="/blog/">Все записи →</a></p>
     </section>
@@ -226,12 +228,12 @@
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="section-head">
         <h2 id="about-title">Коротко</h2>
-        <p>Пишу на PHP и Dart: Symfony-сервисы с Redis и RabbitMQ, кастом под WordPress и Битрикс, мобильные на Flutter. В <a href="https://lighttread.ru">Lighttread</a> руковожу направлением разработки. Живу во Владивостоке.</p>
+        <p>Пишу на PHP, TypeScript и Dart: Symfony-сервисы с Redis и RabbitMQ, кастом под WordPress и Битрикс, мобильные на React Native и Flutter. В <a href="https://lighttread.ru">Lighttread</a> руковожу направлением разработки. Живу во Владивостоке.</p>
       </div>
       <dl class="facts">
         <div>
           <dt>Стек</dt>
-          <dd>PHP, Symfony, Redis, RabbitMQ, Dart, Flutter, WordPress, 1С-Битрикс</dd>
+          <dd>PHP, Symfony, Redis, RabbitMQ, React Native, TypeScript, Dart, Flutter, WordPress, 1С-Битрикс</dd>
         </div>
         <div>
           <dt>Локация</dt>

@@ -901,6 +901,10 @@ body.nav-open .nav-toggle-bars::after {
     padding-top: 0;
   }
 
+  .note-tags {
+    grid-column: 1;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
