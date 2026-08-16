@@ -1,0 +1,4 @@
+Contact: mailto:info@lighttread.ru
+Preferred-Languages: ru, en
+Canonical: https://voynere.github.io/.well-known/security.txt
+Expires: 2027-08-16T00:00:00.000Z

@@ -17,6 +17,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Voynere — заметки",
+    "url": "https://voynere.github.io/blog/",
+    "author": {
+      "@type": "Person",
+      "name": "Eugene Voyner"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Крафт личного сайта",
+        "url": "https://voynere.github.io/blog/site-craft/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Flutter и Dart в рабочем контуре",
+        "url": "https://voynere.github.io/blog/flutter-and-dart/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Очереди и кэш: RabbitMQ и Redis",
+        "url": "https://voynere.github.io/blog/queues-and-cache/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Symfony из Владивостока",
+        "url": "https://voynere.github.io/blog/symfony-from-vladivostok/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Кастом под WordPress и Битрикс",
+        "url": "https://voynere.github.io/blog/wordpress-bitrix-custom/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Мониторинг цен как продукт",
+        "url": "https://voynere.github.io/blog/monitoring-prices/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Как почистил voynere.github.io",
+        "url": "https://voynere.github.io/blog/github-pages-cleanup/"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Lighttread и личный сайт",
+        "url": "https://voynere.github.io/blog/lighttread/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -42,6 +96,11 @@
       <p class="eyebrow">Блог</p>
       <h1>Заметки</h1>
       <p class="lede">Короткие записи о коде, деплое и том, как устроен рабочий контур.</p>
+      <label class="blog-search">
+        <span class="visually-hidden">Поиск по заметкам</span>
+        <input id="blog-search" type="search" placeholder="Поиск: Symfony, Flutter, Redis…" autocomplete="off" enterkeyhint="search">
+      </label>
+      <p class="blog-search-status" id="blog-search-status" aria-live="polite"></p>
     </header>
 
     <ul class="note-list">

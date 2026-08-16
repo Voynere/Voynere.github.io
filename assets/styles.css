@@ -1018,6 +1018,67 @@ body.nav-open .nav-toggle-bars::after {
   }
 }
 
+.blog-search {
+  display: block;
+  margin-top: 1.25rem;
+  max-width: 28rem;
+}
+
+.blog-search input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.12rem;
+  background: rgba(255, 250, 243, 0.55);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-search input::placeholder {
+  color: rgba(58, 81, 100, 0.72);
+}
+
+.blog-search input:focus {
+  border-color: rgba(184, 67, 34, 0.55);
+  background: rgba(255, 250, 243, 0.85);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.blog-search-status {
+  min-height: 1.25rem;
+  margin: 0.55rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.note-list > li[hidden] {
+  display: none;
+}
+
+.copy-link {
+  margin-top: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-deep);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.copy-link:hover {
+  color: var(--accent);
+}
+
 .read-progress {
   position: fixed;
   top: 0;

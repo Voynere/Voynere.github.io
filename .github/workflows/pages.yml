@@ -25,9 +25,10 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp index.html 404.html .nojekyll favicon.svg og.svg robots.txt sitemap.xml rss.xml site.webmanifest _site/
+          cp index.html 404.html .nojekyll favicon.svg og.svg og.png robots.txt sitemap.xml rss.xml site.webmanifest _site/
           cp -R assets _site/assets
           cp -R blog _site/blog
+          cp -R .well-known _site/.well-known
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

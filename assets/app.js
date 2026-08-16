@@ -187,4 +187,49 @@
       observer.observe(el);
     });
   }
+
+  const searchInput = document.getElementById("blog-search");
+  const searchStatus = document.getElementById("blog-search-status");
+  const noteItems = [...document.querySelectorAll(".note-list > li")];
+  if (searchInput && noteItems.length) {
+    const filterNotes = () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      noteItems.forEach((item) => {
+        const hay = item.textContent.toLowerCase();
+        const match = !query || hay.includes(query);
+        item.hidden = !match;
+        if (match) visible += 1;
+      });
+      if (!searchStatus) return;
+      if (!query) {
+        searchStatus.textContent = "";
+      } else if (visible === 0) {
+        searchStatus.textContent = "Ничего не нашлось";
+      } else {
+        searchStatus.textContent = `Найдено: ${visible}`;
+      }
+    };
+    searchInput.addEventListener("input", filterNotes);
+  }
+
+  const postHeader = document.querySelector("article.post .post-header");
+  if (postHeader && navigator.clipboard) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "copy-link";
+    button.textContent = "Скопировать ссылку";
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        button.textContent = "Скопировано";
+        window.setTimeout(() => {
+          button.textContent = "Скопировать ссылку";
+        }, 1600);
+      } catch {
+        button.textContent = "Не удалось";
+      }
+    });
+    postHeader.appendChild(button);
+  }
 })();
