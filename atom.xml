@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Voynere — заметки</title>
+  <link href="https://voynere.github.io/blog/" rel="alternate" type="text/html"/>
+  <link href="https://voynere.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://voynere.github.io/blog/</id>
+  <updated>2026-08-16T12:00:00+10:00</updated>
+  <author><name>Eugene Voyner</name></author>
+  <entry>
+    <title>Крафт личного сайта</title>
+    <link href="https://voynere.github.io/blog/site-craft/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/site-craft/</id>
+    <updated>2026-08-16T12:00:00+10:00</updated>
+    <summary>Личный сайт для меня — не витрина ради витрины. Это быстрый контур: текст, ссылки, деплой за минуту, без CMS и без сборщика. Что держу в фокусе: статика на GitHub Pages и зелёный Actions на каждый push; читаемый UI на телефоне — меню, плотность, контраст; заметки как рабочий журн</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Flutter и Dart в рабочем контуре</title>
+    <link href="https://voynere.github.io/blog/flutter-and-dart/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/flutter-and-dart/</id>
+    <updated>2026-08-16T12:00:00+10:00</updated>
+    <summary>Веб закрывает витрину и админку. Когда нужен клиент в кармане — один кодбаза на Android и iOS — беру Flutter и Dart . Как это стыкуется с остальным стеком: Symfony отдаёт API и бизнес-логику; Redis / RabbitMQ держат кэш и фоновые задачи на бэке; Flutter — UI, офлайн-сценарии и пу</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Очереди и кэш: RabbitMQ и Redis</title>
+    <link href="https://voynere.github.io/blog/queues-and-cache/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/queues-and-cache/</id>
+    <updated>2026-08-16T12:00:00+10:00</updated>
+    <summary>Когда продукт выходит за рамки «страница + форма», одного PHP-процесса мало. Импорт прайсов, письма, вебхуки, пересчёты — всё это лучше уводить из HTTP-запроса. В моём Symfony-контуре обычно так: RabbitMQ — транспорт для Messenger: задачи живут в очереди, воркеры едят их отдельно</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Symfony из Владивостока</title>
+    <link href="https://voynere.github.io/blog/symfony-from-vladivostok/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/symfony-from-vladivostok/</id>
+    <updated>2026-08-15T12:00:00+10:00</updated>
+    <summary>Новые продукты в Lighttread я предпочитаю поднимать на Symfony: понятный DI, Messenger, HttpClient, Asset Mapper, нормальный путь к тестам и деплою. CMS остаётся там, где уже есть контент и редакторы — WordPress и Битрикс никто не выкидывает ради моды. Рабочая схема такая: Symfon</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Кастом под WordPress и Битрикс</title>
+    <link href="https://voynere.github.io/blog/wordpress-bitrix-custom/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/wordpress-bitrix-custom/</id>
+    <updated>2026-08-15T12:00:00+10:00</updated>
+    <summary>Медицинские сети живут на CMS, которые нельзя «переписать с нуля» каждый квартал. Работа идёт вокруг темы, импорта услуг, городских витрин и аккуратного кастома, который переживает обновления ядра. Типичный расклад: MRT Lider — мультигородской WordPress и сопутствующие инструмент</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Мониторинг цен как продукт</title>
+    <link href="https://voynere.github.io/blog/monitoring-prices/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/monitoring-prices/</id>
+    <updated>2026-08-15T12:00:00+10:00</updated>
+    <summary>Ритейлу и дистрибуции нужна не «парсилка ради парсинга», а стабильный контур: собрать цены, сравнить с собой, показать отклонения и не развалиться на обновлении вёрстки конкурента. У меня это живёт в двух слоях: код и пайплайн — репозиторий monitoring-price ; публичный контур — p</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Как почистил voynere.github.io</title>
+    <link href="https://voynere.github.io/blog/github-pages-cleanup/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/github-pages-cleanup/</id>
+    <updated>2026-08-15T12:00:00+10:00</updated>
+    <summary>На voynere.github.io лежала заглушка со скрытой ссылкой — классический SEO-мусор. Параллельно GitHub Pages падал: legacy-сборка конфликтовала с Actions workflow. Что сделал: выкинул спам и собрал нормальное портфолио на статике; переключил Pages на деплой через GitHub Actions; до</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+  <entry>
+    <title>Lighttread и личный сайт</title>
+    <link href="https://voynere.github.io/blog/lighttread/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/lighttread/</id>
+    <updated>2026-08-15T12:00:00+10:00</updated>
+    <summary>Lighttread — сайт студии: услуги, команда, заявки. Там коммерческий контур и контакт info@lighttread.ru . voynere.github.io — личная витрина: кто я, какие репозитории открыты, короткие заметки. Без форм и без CRM — только ссылки и текст. Разделение простое: студия продаёт работу,</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
+</feed>

@@ -7,6 +7,7 @@
   <meta name="description" content="Заметки Eugene Voyner о разработке, деплое и рабочих контурах.">
   <link rel="canonical" href="https://voynere.github.io/blog/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
+  <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="apple-touch-icon" href="/favicon.svg">
@@ -101,63 +102,90 @@
         <input id="blog-search" type="search" placeholder="Поиск: Symfony, Flutter, Redis…" autocomplete="off" enterkeyhint="search">
       </label>
       <p class="blog-search-status" id="blog-search-status" aria-live="polite"></p>
+      <div class="tag-filters" role="group" aria-label="Фильтр по тегам">
+      <button type="button" class="tag-filter is-active" data-tag="">Все</button>
+      <button type="button" class="tag-filter" data-tag="bitrix">bitrix</button>
+      <button type="button" class="tag-filter" data-tag="cms">cms</button>
+      <button type="button" class="tag-filter" data-tag="dart">dart</button>
+      <button type="button" class="tag-filter" data-tag="flutter">flutter</button>
+      <button type="button" class="tag-filter" data-tag="lighttread">lighttread</button>
+      <button type="button" class="tag-filter" data-tag="mobile">mobile</button>
+      <button type="button" class="tag-filter" data-tag="pages">pages</button>
+      <button type="button" class="tag-filter" data-tag="php">php</button>
+      <button type="button" class="tag-filter" data-tag="product">product</button>
+      <button type="button" class="tag-filter" data-tag="rabbitmq">rabbitmq</button>
+      <button type="button" class="tag-filter" data-tag="redis">redis</button>
+      <button type="button" class="tag-filter" data-tag="site">site</button>
+      <button type="button" class="tag-filter" data-tag="studio">studio</button>
+      <button type="button" class="tag-filter" data-tag="symfony">symfony</button>
+      <button type="button" class="tag-filter" data-tag="ui">ui</button>
+      <button type="button" class="tag-filter" data-tag="wordpress">wordpress</button>
+      </div>
     </header>
 
     <ul class="note-list">
-      <li>
+      <li data-tags="site pages ui">
         <a class="note" href="/blog/site-craft/">
           <time datetime="2026-08-16">16 авг 2026</time>
           <span class="note-title">Крафт личного сайта</span>
           <span class="note-desc">Статика, деплой и UI без лишнего фреймворка.</span>
+          <span class="note-tags"><span class="note-tag">site</span> <span class="note-tag">pages</span> <span class="note-tag">ui</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="flutter dart mobile">
         <a class="note" href="/blog/flutter-and-dart/">
           <time datetime="2026-08-16">16 авг 2026</time>
           <span class="note-title">Flutter и Dart в рабочем контуре</span>
           <span class="note-desc">Мобильный слой к Symfony и CMS в одной студии.</span>
+          <span class="note-tags"><span class="note-tag">flutter</span> <span class="note-tag">dart</span> <span class="note-tag">mobile</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="symfony redis rabbitmq">
         <a class="note" href="/blog/queues-and-cache/">
           <time datetime="2026-08-16">16 авг 2026</time>
           <span class="note-title">Очереди и кэш: RabbitMQ и Redis</span>
           <span class="note-desc">Messenger, воркеры и быстрый кэш рядом с Symfony.</span>
+          <span class="note-tags"><span class="note-tag">symfony</span> <span class="note-tag">redis</span> <span class="note-tag">rabbitmq</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="symfony php">
         <a class="note" href="/blog/symfony-from-vladivostok/">
           <time datetime="2026-08-15">15 авг 2026</time>
           <span class="note-title">Symfony из Владивостока</span>
           <span class="note-desc">Новые продукты на Symfony, CMS там где уже есть контент.</span>
+          <span class="note-tags"><span class="note-tag">symfony</span> <span class="note-tag">php</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="wordpress bitrix cms">
         <a class="note" href="/blog/wordpress-bitrix-custom/">
           <time datetime="2026-08-15">15 авг 2026</time>
           <span class="note-title">Кастом под WordPress и Битрикс</span>
           <span class="note-desc">Темы, импортеры и отдельные репо под медицинские сети.</span>
+          <span class="note-tags"><span class="note-tag">wordpress</span> <span class="note-tag">bitrix</span> <span class="note-tag">cms</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="php product">
         <a class="note" href="/blog/monitoring-prices/">
           <time datetime="2026-08-15">15 авг 2026</time>
           <span class="note-title">Мониторинг цен как продукт</span>
           <span class="note-desc">Сбор, сравнение и публичный контур price.smyalichi.ru.</span>
+          <span class="note-tags"><span class="note-tag">php</span> <span class="note-tag">product</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="pages site">
         <a class="note" href="/blog/github-pages-cleanup/">
           <time datetime="2026-08-15">15 авг 2026</time>
           <span class="note-title">Как почистил voynere.github.io</span>
           <span class="note-desc">Убрал SEO-спам, собрал портфолио и починил деплой через Actions.</span>
+          <span class="note-tags"><span class="note-tag">pages</span> <span class="note-tag">site</span></span>
         </a>
       </li>
-      <li>
+      <li data-tags="lighttread studio">
         <a class="note" href="/blog/lighttread/">
           <time datetime="2026-08-15">15 авг 2026</time>
           <span class="note-title">Lighttread и личный сайт</span>
           <span class="note-desc">Зачем студии отдельный сайт, а GitHub Pages — личная витрина.</span>
+          <span class="note-tags"><span class="note-tag">lighttread</span> <span class="note-tag">studio</span></span>
         </a>
       </li>
     </ul>
@@ -169,6 +197,7 @@
     <div class="footer-links">
       <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
       <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
       <a href="mailto:info@lighttread.ru">Email</a>
     </div>
   </footer>

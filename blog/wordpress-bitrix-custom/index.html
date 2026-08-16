@@ -60,11 +60,12 @@
   </header>
 
   <main class="page" id="main">
-    <article class="post">
+    <article class="post" data-tags="wordpress bitrix cms">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
         <h1>Кастом под WordPress и Битрикс</h1>
-        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time> · <span class="read-time">1 мин чтения</span></p>
+        <p class="post-tags"><a href="/blog/?tag=wordpress">wordpress</a> · <a href="/blog/?tag=bitrix">bitrix</a> · <a href="/blog/?tag=cms">cms</a></p>
       </header>
 
       <div class="post-body">
@@ -77,6 +78,14 @@
         </ul>
         <p>Правило простое: всё, что уникально для сайта, лежит в своём репо и деплоится явно. Тогда можно чинить один город или одну тему, не трогая соседние проекты.</p>
       </div>
+
+      <aside class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Ещё по теме</h2>
+        <ul>
+          <li><a href="/blog/symfony-from-vladivostok/">Symfony из Владивостока</a></li>
+          <li><a href="/blog/monitoring-prices/">Мониторинг цен как продукт</a></li>
+        </ul>
+      </aside>
 
       <p class="post-nav">
       <a class="post-nav-prev" href="/blog/monitoring-prices/">← Мониторинг цен как продукт</a>
@@ -92,6 +101,7 @@
     <div class="footer-links">
       <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
       <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
       <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
       <a href="mailto:info@lighttread.ru">Email</a>
     </div>

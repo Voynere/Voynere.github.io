@@ -60,11 +60,12 @@
   </header>
 
   <main class="page" id="main">
-    <article class="post">
+    <article class="post" data-tags="php product">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
         <h1>Мониторинг цен как продукт</h1>
-        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time></p>
+        <p class="post-meta"><time datetime="2026-08-15">15 августа 2026</time> · <span class="read-time">1 мин чтения</span></p>
+        <p class="post-tags"><a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=product">product</a></p>
       </header>
 
       <div class="post-body">
@@ -76,6 +77,14 @@
         </ul>
         <p>Главное в таких сервисах — предсказуемость: понятные источники, логируемые сбои, обновление по расписанию и интерфейс, где человек за минуту видит, что подорожало или уехало вниз. Остальное — инженерия вокруг данных, а не красивая обёртка.</p>
       </div>
+
+            <aside class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Ещё по теме</h2>
+        <ul>
+          <li><a href="/blog/symfony-from-vladivostok/">Symfony из Владивостока</a></li>
+          <li><a href="/blog/wordpress-bitrix-custom/">Кастом под WordPress и Битрикс</a></li>
+        </ul>
+      </aside>
 
       <p class="post-nav">
       <a class="post-nav-prev" href="/blog/github-pages-cleanup/">← Как почистил voynere.github.io</a>
@@ -91,6 +100,7 @@
     <div class="footer-links">
       <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
       <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
       <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
       <a href="mailto:info@lighttread.ru">Email</a>
     </div>

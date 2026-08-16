@@ -191,27 +191,101 @@
   const searchInput = document.getElementById("blog-search");
   const searchStatus = document.getElementById("blog-search-status");
   const noteItems = [...document.querySelectorAll(".note-list > li")];
+  const tagFilters = [...document.querySelectorAll(".tag-filter")];
+  let activeTag = "";
+
+  const applyBlogFilters = () => {
+    if (!noteItems.length) return;
+    const query = (searchInput?.value || "").trim().toLowerCase();
+    let visible = 0;
+    noteItems.forEach((item) => {
+      const hay = item.textContent.toLowerCase();
+      const tags = (item.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+      const tagMatch = !activeTag || tags.includes(activeTag);
+      const textMatch = !query || hay.includes(query);
+      const match = tagMatch && textMatch;
+      item.hidden = !match;
+      if (match) visible += 1;
+    });
+    if (!searchStatus) return;
+    const parts = [];
+    if (activeTag) parts.push(`тег «${activeTag}»`);
+    if (query) parts.push(`«${query}»`);
+    if (!parts.length) {
+      searchStatus.textContent = "";
+    } else if (visible === 0) {
+      searchStatus.textContent = "Ничего не нашлось";
+    } else {
+      searchStatus.textContent = `Найдено: ${visible} · ${parts.join(" · ")}`;
+    }
+  };
+
   if (searchInput && noteItems.length) {
-    const filterNotes = () => {
-      const query = searchInput.value.trim().toLowerCase();
-      let visible = 0;
-      noteItems.forEach((item) => {
-        const hay = item.textContent.toLowerCase();
-        const match = !query || hay.includes(query);
-        item.hidden = !match;
-        if (match) visible += 1;
-      });
-      if (!searchStatus) return;
-      if (!query) {
-        searchStatus.textContent = "";
-      } else if (visible === 0) {
-        searchStatus.textContent = "Ничего не нашлось";
-      } else {
-        searchStatus.textContent = `Найдено: ${visible}`;
-      }
-    };
-    searchInput.addEventListener("input", filterNotes);
+    searchInput.addEventListener("input", applyBlogFilters);
   }
+
+  if (tagFilters.length && noteItems.length) {
+    const params = new URLSearchParams(window.location.search);
+    const initialTag = params.get("tag") || "";
+    if (initialTag) {
+      activeTag = initialTag;
+      tagFilters.forEach((btn) => {
+        btn.classList.toggle("is-active", (btn.getAttribute("data-tag") || "") === activeTag);
+      });
+    }
+
+    tagFilters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeTag = btn.getAttribute("data-tag") || "";
+        tagFilters.forEach((other) => {
+          other.classList.toggle("is-active", other === btn);
+        });
+        const url = new URL(window.location.href);
+        if (activeTag) url.searchParams.set("tag", activeTag);
+        else url.searchParams.delete("tag");
+        window.history.replaceState({}, "", url);
+        applyBlogFilters();
+      });
+    });
+    applyBlogFilters();
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "/" || event.metaKey || event.ctrlKey || event.altKey) return;
+    const target = event.target;
+    if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
+    if (!searchInput) return;
+    event.preventDefault();
+    searchInput.focus();
+  });
+
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    link.addEventListener(
+      "pointerenter",
+      () => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("/#") || document.querySelector(`link[data-prefetch="${href}"]`)) {
+          return;
+        }
+        const prefetch = document.createElement("link");
+        prefetch.rel = "prefetch";
+        prefetch.href = href;
+        prefetch.dataset.prefetch = href;
+        document.head.appendChild(prefetch);
+      },
+      { once: true }
+    );
+  });
+
+  document.querySelectorAll(".post-body a[href^='http']").forEach((link) => {
+    if (!link.hostname.includes("voynere.github.io")) {
+      link.classList.add("is-external");
+      if (!link.target) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    }
+  });
 
   const postHeader = document.querySelector("article.post .post-header");
   if (postHeader && navigator.clipboard) {
