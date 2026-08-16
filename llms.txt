@@ -21,6 +21,7 @@
 
 ## Recent notes
 
+- https://voynere.github.io/blog/symfony-httpclient-timeouts/
 - https://voynere.github.io/blog/redis-cache-keys/
 - https://voynere.github.io/blog/symfony-messenger-idempotency/
 - https://voynere.github.io/blog/queues-and-cache/

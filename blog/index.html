@@ -36,6 +36,11 @@
     "blogPost": [
       {
         "@type": "BlogPosting",
+        "headline": "Таймауты HttpClient в Symfony",
+        "url": "https://voynere.github.io/blog/symfony-httpclient-timeouts/"
+      },
+      {
+        "@type": "BlogPosting",
         "headline": "Ключи кэша в Redis без хаоса",
         "url": "https://voynere.github.io/blog/redis-cache-keys/"
       },
@@ -138,6 +143,7 @@
       <p class="blog-search-status" id="blog-search-status" aria-live="polite"></p>
       <div class="tag-filters" role="group" aria-label="Фильтр по тегам">
       <button type="button" class="tag-filter is-active" data-tag="">Все</button>
+      <button type="button" class="tag-filter" data-tag="architecture">architecture</button>
       <button type="button" class="tag-filter" data-tag="bitrix">bitrix</button>
       <button type="button" class="tag-filter" data-tag="cms">cms</button>
       <button type="button" class="tag-filter" data-tag="dart">dart</button>
@@ -160,6 +166,14 @@
     </header>
 
     <ul class="note-list">
+      <li data-tags="php symfony architecture">
+        <a class="note" href="/blog/symfony-httpclient-timeouts/">
+          <time datetime="2026-08-16">16 авг 2026</time>
+          <span class="note-title">Таймауты HttpClient в Symfony</span>
+          <span class="note-desc">timeout vs max_duration — и почему дефолты опасны для FPM.</span>
+          <span class="note-tags"><span class="note-tag">php</span> <span class="note-tag">symfony</span> <span class="note-tag">architecture</span></span>
+        </a>
+      </li>
       <li data-tags="redis php symfony">
         <a class="note" href="/blog/redis-cache-keys/">
           <time datetime="2026-08-16">16 авг 2026</time>

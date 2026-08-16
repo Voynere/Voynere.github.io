@@ -274,6 +274,23 @@
     searchInput.focus();
   });
 
+  const postPrev = document.querySelector(".post-nav-prev[href]");
+  const postNext = document.querySelector(".post-nav-next[href]");
+  if (postPrev || postNext) {
+    document.addEventListener("keydown", (event) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      const target = event.target;
+      if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
+      if (event.key === "j" && postNext) {
+        event.preventDefault();
+        window.location.href = postNext.href;
+      } else if (event.key === "k" && postPrev) {
+        event.preventDefault();
+        window.location.href = postPrev.href;
+      }
+    });
+  }
+
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
     link.addEventListener(
       "pointerenter",
@@ -399,6 +416,7 @@
       <h2>Клавиши</h2>
       <dl>
         <div><dt>/</dt><dd>Поиск в блоге</dd></div>
+        <div><dt>j / k</dt><dd>След. / пред. запись</dd></div>
         <div><dt>?</dt><dd>Эта справка</dd></div>
         <div><dt>Esc</dt><dd>Закрыть меню / справку</dd></div>
       </dl>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ключи кэша в Redis без хаоса — Voynere</title>
-  <meta name="description" content="Как именую ключи Redis в Symfony-контуре, чтобы кэш можно было инвалидировать без сюрпризов.">
-  <link rel="canonical" href="https://voynere.github.io/blog/redis-cache-keys/">
+  <title>Таймауты HttpClient в Symfony — Voynere</title>
+  <meta name="description" content="Почему в Symfony HttpClient задаю timeout и max_duration отдельно — и что ломается без этого.">
+  <link rel="canonical" href="https://voynere.github.io/blog/symfony-httpclient-timeouts/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -22,13 +22,13 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Ключи кэша в Redis без хаоса",
-    "description": "Как именую ключи Redis в Symfony-контуре, чтобы кэш можно было инвалидировать без сюрпризов.",
+    "headline": "Таймауты HttpClient в Symfony",
+    "description": "Почему в Symfony HttpClient задаю timeout и max_duration отдельно — и что ломается без этого.",
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16",
     "author": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
     "publisher": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
-    "mainEntityOfPage": "https://voynere.github.io/blog/redis-cache-keys/",
+    "mainEntityOfPage": "https://voynere.github.io/blog/symfony-httpclient-timeouts/",
     "image": "https://voynere.github.io/og.png",
     "inLanguage": "ru"
   }
@@ -57,37 +57,37 @@
   </header>
 
   <main class="page" id="main">
-    <article class="post" data-tags="redis php symfony">
+    <article class="post" data-tags="php symfony architecture">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
-        <h1>Ключи кэша в Redis без хаоса</h1>
+        <h1>Таймауты HttpClient в Symfony</h1>
         <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">2 мин чтения</span></p>
-        <p class="post-tags"><a href="/blog/?tag=redis">redis</a> · <a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=symfony">symfony</a></p>
+        <p class="post-tags"><a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=symfony">symfony</a> · <a href="/blog/?tag=architecture">architecture</a></p>
       </header>
 
       <div class="post-body">
-        <h2>Одна схема имён</h2>
-        <p>Ключ собираю из сегментов: <code>app:entity:id:variant</code>. Например <code>ferma:catalog:zone:12:v3</code>. Префикс приложения обязателен — на одном Redis часто живут несколько сервисов.</p>
-        <h2>Версия в ключе</h2>
-        <p>Вместо массового <code>FLUSH</code> поднимаю версию неймспейса: <code>...:v4</code>. Старые ключи истекают по TTL сами. Для точечных сущностей держу tag/version в отдельном ключе и подмешиваю в имя.</p>
-        <h2>Что не класть</h2>
-        <p>Не сериализую в значение «весь мир». Кэш — снимок ответа или проекции. Сессии, идемпотентные маркеры Messenger и rate-limit — отдельные префиксы, чтобы случайный сброс каталога не снёс защиту от дублей.</p>
-        <h2>Инвалидация</h2>
-        <p>Пишу рядом с записью в БД: обновили товар — удалили/бампанули его ключи. «Почистим потом кроном» почти всегда означает рассинхрон витрины. Подробнее про очереди — в <a href="/blog/queues-and-cache/">RabbitMQ и Redis</a>.</p>
+        <h2>Два разных лимита</h2>
+        <p><code>timeout</code> — сколько ждать ответа между порциями данных. <code>max_duration</code> — потолок всей операции. Без второго «медленный, но капающий» upstream держит воркер минутами.</p>
+        <h2>Дефолты опасны</h2>
+        <p>Вызовы МойСклад, платёжек, SMS и чужих CMS без явных лимитов — классический путь к исчерпанию PHP-FPM. В scoped-клиенте задаю оба значения под SLA интеграции, не «на глаз из туториала».</p>
+        <h2>Ретраи отдельно</h2>
+        <p>Таймаут ≠ «попробуй ещё раз». Ретраи — в Messenger или явном retry-policy, с идемпотентностью на стороне эффекта. Иначе удвоенный заказ после медленного 200 OK.</p>
+        <h2>Что логирую</h2>
+        <p>URL (без секретов), длительность, тип ошибки: connect / timeout / 5xx. Без этого «иногда тормозит» не чинится. Связка с очередями — в <a href="/blog/queues-and-cache/">RabbitMQ и Redis</a>.</p>
       </div>
 
       <aside class="related" aria-labelledby="related-title">
         <h2 id="related-title">Ещё по теме</h2>
         <ul>
-          <li><a href="/blog/queues-and-cache/">Очереди и кэш: RabbitMQ и Redis</a></li>
           <li><a href="/blog/symfony-messenger-idempotency/">Идемпотентность в Symfony Messenger</a></li>
+          <li><a href="/blog/redis-cache-keys/">Ключи кэша в Redis без хаоса</a></li>
           <li><a href="/blog/symfony-from-vladivostok/">Symfony из Владивостока</a></li>
         </ul>
       </aside>
       <p class="post-nav">
-        <a class="post-nav-prev" href="/blog/symfony-httpclient-timeouts/">← Таймауты HttpClient в Symfony</a>
+        <span class="post-nav-prev"></span>
         <a class="post-nav-index" href="/blog/">Все записи</a>
-        <a class="post-nav-next" href="/blog/ferma-dv-bff/">Ferma DV: BFF на WordPress →</a>
+        <a class="post-nav-next" href="/blog/redis-cache-keys/">Ключи кэша в Redis без хаоса →</a>
       </p>
     </article>
   </main>

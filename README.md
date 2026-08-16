@@ -6,6 +6,7 @@
 - Сейчас: https://voynere.github.io/now/
 - Инструменты: https://voynere.github.io/uses/
 - Колофон: https://voynere.github.io/colophon/
+- llms.txt: https://voynere.github.io/llms.txt
 - Студия: https://lighttread.ru/
 - Контакт: info@lighttread.ru
 - RSS: https://voynere.github.io/rss.xml

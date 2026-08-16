@@ -9,6 +9,15 @@
   
   
   
+  
+  <entry>
+    <title>Таймауты HttpClient в Symfony</title>
+    <link href="https://voynere.github.io/blog/symfony-httpclient-timeouts/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/symfony-httpclient-timeouts/</id>
+    <updated>2026-08-16T16:00:00Z</updated>
+    <summary>timeout vs max_duration — и почему дефолты опасны для FPM.</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
   <entry>
     <title>Ключи кэша в Redis без хаоса</title>
     <link href="https://voynere.github.io/blog/redis-cache-keys/" rel="alternate" type="text/html"/>
