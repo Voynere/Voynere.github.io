@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Идемпотентность в Symfony Messenger — Voynere</title>
-  <meta name="description" content="Как не выполнить сайд‑эффект дважды при retry Messenger и RabbitMQ.">
-  <link rel="canonical" href="https://voynere.github.io/blog/symfony-messenger-idempotency/">
+  <title>Ключи кэша в Redis без хаоса — Voynere</title>
+  <meta name="description" content="Как именую ключи Redis в Symfony-контуре, чтобы кэш можно было инвалидировать без сюрпризов.">
+  <link rel="canonical" href="https://voynere.github.io/blog/redis-cache-keys/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -22,21 +22,13 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Идемпотентность в Symfony Messenger",
-    "description": "Как не выполнить сайд‑эффект дважды при retry Messenger и RabbitMQ.",
+    "headline": "Ключи кэша в Redis без хаоса",
+    "description": "Как именую ключи Redis в Symfony-контуре, чтобы кэш можно было инвалидировать без сюрпризов.",
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16",
-    "author": {
-      "@type": "Person",
-      "name": "Eugene Voyner",
-      "url": "https://voynere.github.io/"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Eugene Voyner",
-      "url": "https://voynere.github.io/"
-    },
-    "mainEntityOfPage": "https://voynere.github.io/blog/symfony-messenger-idempotency/",
+    "author": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
+    "publisher": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
+    "mainEntityOfPage": "https://voynere.github.io/blog/redis-cache-keys/",
     "image": "https://voynere.github.io/og.png",
     "inLanguage": "ru"
   }
@@ -59,43 +51,43 @@
       <a href="/blog/">Блог</a>
       <a href="/now/">Сейчас</a>
       <a href="/uses/">Инструменты</a>
-      <a href="/colophon/">Колофон</a>
       <a href="/#contact">Контакт</a>
       <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
     </nav>
   </header>
 
   <main class="page" id="main">
-    <article class="post" data-tags="php symfony redis rabbitmq">
+    <article class="post" data-tags="redis php symfony">
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
-        <h1>Идемпотентность в Symfony Messenger</h1>
-        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">3 мин чтения</span></p>
-        <p class="post-tags"><a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=symfony">symfony</a> · <a href="/blog/?tag=redis">redis</a> · <a href="/blog/?tag=rabbitmq">rabbitmq</a></p>
+        <h1>Ключи кэша в Redis без хаоса</h1>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">2 мин чтения</span></p>
+        <p class="post-tags"><a href="/blog/?tag=redis">redis</a> · <a href="/blog/?tag=php">php</a> · <a href="/blog/?tag=symfony">symfony</a></p>
       </header>
 
       <div class="post-body">
-        <h2>Почему это больно</h2>
-        <p>При retry и at‑least‑once доставке хендлер может выполниться дважды. Двойной email, двойное списание, двойной вызов внешнего API — типичная цена «просто бросили в очередь».</p>
-        <h2>Идемпотентный ключ</h2>
-        <p>В сообщение кладу бизнес‑ключ: <code>orderId + eventType</code> или UUID команды. Перед сайд‑эффектом проверяю Redis/БД: ключ уже обработан — выхожу. Успех — пишу ключ с TTL чуть дольше окна ретраев.</p>
-        <h2>Где хранить</h2>
-        <p>Для Symfony Messenger + RabbitMQ удобен Redis: быстрый <code>SET key NX EX</code>. Если нужна строгая история — таблица <code>processed_messages</code> с unique constraint и транзакцией вокруг доменной записи.</p>
-        <h2>Что не путать</h2>
-        <p>Идемпотентность хендлера ≠ дедуп на брокере. Брокер может отдать дубль; защита живёт в приложении. Failed transport и retry — отдельно: не ретраить без разбора ошибки бизнес‑логики.</p>
+        <h2>Одна схема имён</h2>
+        <p>Ключ собираю из сегментов: <code>app:entity:id:variant</code>. Например <code>ferma:catalog:zone:12:v3</code>. Префикс приложения обязателен — на одном Redis часто живут несколько сервисов.</p>
+        <h2>Версия в ключе</h2>
+        <p>Вместо массового <code>FLUSH</code> поднимаю версию неймспейса: <code>...:v4</code>. Старые ключи истекают по TTL сами. Для точечных сущностей держу tag/version в отдельном ключе и подмешиваю в имя.</p>
+        <h2>Что не класть</h2>
+        <p>Не сериализую в значение «весь мир». Кэш — снимок ответа или проекции. Сессии, идемпотентные маркеры Messenger и rate-limit — отдельные префиксы, чтобы случайный сброс каталога не снёс защиту от дублей.</p>
+        <h2>Инвалидация</h2>
+        <p>Пишу рядом с записью в БД: обновили товар — удалили/бампанули его ключи. «Почистим потом кроном» почти всегда означает рассинхрон витрины. Подробнее про очереди — в <a href="/blog/queues-and-cache/">RabbitMQ и Redis</a>.</p>
       </div>
 
       <aside class="related" aria-labelledby="related-title">
         <h2 id="related-title">Ещё по теме</h2>
         <ul>
-          <li><a href="/blog/redis-cache-keys/">Ключи кэша в Redis без хаоса</a></li>
           <li><a href="/blog/queues-and-cache/">Очереди и кэш: RabbitMQ и Redis</a></li>
+          <li><a href="/blog/symfony-messenger-idempotency/">Идемпотентность в Symfony Messenger</a></li>
+          <li><a href="/blog/symfony-from-vladivostok/">Symfony из Владивостока</a></li>
         </ul>
       </aside>
       <p class="post-nav">
-        <a class="post-nav-prev" href="/blog/ferma-dv-bff/">← Ferma DV: BFF на WordPress</a>
+        <span class="post-nav-prev"></span>
         <a class="post-nav-index" href="/blog/">Все записи</a>
-        <a class="post-nav-next" href="/blog/ferma-dv-delivery-stock/">Ferma DV: доставка и остатки →</a>
+        <a class="post-nav-next" href="/blog/ferma-dv-bff/">Ferma DV: BFF на WordPress →</a>
       </p>
     </article>
   </main>
@@ -107,6 +99,7 @@
       <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
       <a href="/now/">Сейчас</a>
       <a href="/uses/">Инструменты</a>
+      <a href="/colophon/">Колофон</a>
       <a href="/rss.xml">RSS</a>
       <a href="/atom.xml">Atom</a>
       <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
@@ -117,3 +110,4 @@
   <script src="/assets/app.js" defer></script>
 </body>
 </html>
+

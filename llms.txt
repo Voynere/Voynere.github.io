@@ -1,0 +1,26 @@
+# Eugene Voyner (Voynere)
+
+> Personal site of Eugene Voyner — PHP/TypeScript/Dart developer, Lighttread (Vladivostok).
+
+- Home: https://voynere.github.io/
+- Blog: https://voynere.github.io/blog/
+- Now: https://voynere.github.io/now/
+- Uses: https://voynere.github.io/uses/
+- Colophon: https://voynere.github.io/colophon/
+- RSS: https://voynere.github.io/rss.xml
+- Atom: https://voynere.github.io/atom.xml
+- Studio: https://lighttread.ru/
+- Contact: info@lighttread.ru
+
+## Ferma DV series
+
+- https://voynere.github.io/blog/series/ferma-dv/
+- https://voynere.github.io/blog/ferma-dv-react-native/
+- https://voynere.github.io/blog/ferma-dv-delivery-stock/
+- https://voynere.github.io/blog/ferma-dv-bff/
+
+## Recent notes
+
+- https://voynere.github.io/blog/redis-cache-keys/
+- https://voynere.github.io/blog/symfony-messenger-idempotency/
+- https://voynere.github.io/blog/queues-and-cache/

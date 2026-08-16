@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://voynere.github.io/sitemap.xml
+
+# AI / humans
+# https://voynere.github.io/llms.txt
+# https://voynere.github.io/humans.txt

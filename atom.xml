@@ -8,6 +8,15 @@
   <author><name>Eugene Voyner</name></author>
   
   
+  
+  <entry>
+    <title>Ключи кэша в Redis без хаоса</title>
+    <link href="https://voynere.github.io/blog/redis-cache-keys/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/redis-cache-keys/</id>
+    <updated>2026-08-16T15:00:00Z</updated>
+    <summary>Схема имён, версии неймспейса и точечная инвалидация.</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
   <entry>
     <title>Ferma DV: BFF на WordPress</title>
     <link href="https://voynere.github.io/blog/ferma-dv-bff/" rel="alternate" type="text/html"/>

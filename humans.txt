@@ -1,0 +1,13 @@
+/* TEAM */
+Name: Eugene Voyner
+Site: https://voynere.github.io/
+Studio: https://lighttread.ru/
+Contact: info@lighttread.ru
+Location: Vladivostok, Russia
+
+/* SITE */
+Standards: HTML5, CSS3, vanilla JS
+Software: GitHub Pages, GitHub Actions
+Fonts: Syne, Literata
+Language: Russian
+Last update: 2026-08-16

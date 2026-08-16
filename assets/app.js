@@ -221,7 +221,19 @@
   };
 
   if (searchInput && noteItems.length) {
-    searchInput.addEventListener("input", applyBlogFilters);
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get("q") || "";
+    if (initialQuery) {
+      searchInput.value = initialQuery;
+    }
+    searchInput.addEventListener("input", () => {
+      const url = new URL(window.location.href);
+      const value = searchInput.value.trim();
+      if (value) url.searchParams.set("q", value);
+      else url.searchParams.delete("q");
+      window.history.replaceState({}, "", url);
+      applyBlogFilters();
+    });
   }
 
   if (tagFilters.length && noteItems.length) {
@@ -247,6 +259,9 @@
         applyBlogFilters();
       });
     });
+  }
+
+  if (noteItems.length) {
     applyBlogFilters();
   }
 

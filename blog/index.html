@@ -24,11 +24,21 @@
     "@type": "Blog",
     "name": "Voynere — заметки",
     "url": "https://voynere.github.io/blog/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://voynere.github.io/blog/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
     "author": {
       "@type": "Person",
       "name": "Eugene Voyner"
     },
     "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Ключи кэша в Redis без хаоса",
+        "url": "https://voynere.github.io/blog/redis-cache-keys/"
+      },
       {
         "@type": "BlogPosting",
         "headline": "Ferma DV: BFF на WordPress",
@@ -150,6 +160,14 @@
     </header>
 
     <ul class="note-list">
+      <li data-tags="redis php symfony">
+        <a class="note" href="/blog/redis-cache-keys/">
+          <time datetime="2026-08-16">16 авг 2026</time>
+          <span class="note-title">Ключи кэша в Redis без хаоса</span>
+          <span class="note-desc">Схема имён, версии неймспейса и точечная инвалидация.</span>
+          <span class="note-tags"><span class="note-tag">redis</span> <span class="note-tag">php</span> <span class="note-tag">symfony</span></span>
+        </a>
+      </li>
       <li data-tags="wordpress react-native mobile product">
         <a class="note" href="/blog/ferma-dv-bff/">
           <time datetime="2026-08-16">16 авг 2026</time>
