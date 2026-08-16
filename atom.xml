@@ -7,6 +7,15 @@
   <updated>2026-08-16T22:00:00+10:00</updated>
   <author><name>Eugene Voyner</name></author>
   
+  
+  <entry>
+    <title>Ferma DV: BFF на WordPress</title>
+    <link href="https://voynere.github.io/blog/ferma-dv-bff/" rel="alternate" type="text/html"/>
+    <id>https://voynere.github.io/blog/ferma-dv-bff/</id>
+    <updated>2026-08-16T14:00:00Z</updated>
+    <summary>Контракт под экран мобильного каталога, а не под админку CMS.</summary>
+    <author><name>Eugene Voyner</name></author>
+  </entry>
   <entry>
     <title>Идемпотентность в Symfony Messenger</title>
     <link href="https://voynere.github.io/blog/symfony-messenger-idempotency/" rel="alternate" type="text/html"/>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Серия Ferma DV — Voynere</title>
-  <meta name="description" content="Заметки по React Native приложению Ferma DV: архитектура, доставка и остатки.">
-  <link rel="canonical" href="https://voynere.github.io/blog/series/ferma-dv/">
+  <title>Колофон — Voynere</title>
+  <meta name="description" content="Как собран voynere.github.io: статика, деплой, типографика.">
+  <link rel="canonical" href="https://voynere.github.io/colophon/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -18,19 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Серия Ferma DV",
-    "url": "https://voynere.github.io/blog/series/ferma-dv/",
-    "isPartOf": {
-      "@type": "Blog",
-      "name": "Voynere — заметки",
-      "url": "https://voynere.github.io/blog/"
-    }
-  }
-  </script>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -49,7 +36,6 @@
       <a href="/blog/">Блог</a>
       <a href="/now/">Сейчас</a>
       <a href="/uses/">Инструменты</a>
-      <a href="/colophon/">Колофон</a>
       <a href="/#contact">Контакт</a>
       <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
     </nav>
@@ -57,42 +43,17 @@
 
   <main class="page" id="main">
     <header class="page-hero">
-      <p class="eyebrow"><a href="/blog/">Блог</a> · серия</p>
-      <h1>Ferma DV</h1>
-      <p class="lede">Мобильный e‑commerce: React Native, зона доставки как источник правды для витрины, BFF на WordPress.</p>
+      <p class="eyebrow">Colophon</p>
+      <h1>Колофон</h1>
+      <p class="lede">Как устроен этот сайт — без CMS и без сборщика.</p>
     </header>
 
-    <ol class="series-list">
-      <li>
-        <a href="/blog/ferma-dv-react-native/">
-          <span class="series-num">01</span>
-          <span>
-            <strong>Обзор стека и границ</strong>
-            <span class="muted">BFF, Zustand, turf, FCM</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="/blog/ferma-dv-delivery-stock/">
-          <span class="series-num">02</span>
-          <span>
-            <strong>Доставка и остатки</strong>
-            <span class="muted">isSellableHere и ловушка корзины</span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="/blog/ferma-dv-bff/">
-          <span class="series-num">03</span>
-          <span>
-            <strong>BFF на WordPress</strong>
-            <span class="muted">Контракт под экран, не под админку</span>
-          </span>
-        </a>
-      </li>
-    </ol>
-
-    <p class="section-more" style="margin-top:1.5rem"><a href="https://ferma-dv.ru" rel="noopener noreferrer" target="_blank">ferma-dv.ru ↗</a></p>
+    <div class="post-body">
+      <p><strong>Стек.</strong> Статический HTML, один CSS и один JS. Шрифты — Syne и Literata. Деплой: push в <code>main</code> → GitHub Actions → Pages.</p>
+      <p><strong>Контент.</strong> Заметки лежат в <code>blog/*/index.html</code>. Индексы, RSS, Atom и sitemap обновляю вместе с постами. Серия Ferma DV — отдельная коллекция.</p>
+      <p><strong>Поведение.</strong> Мобильное меню, поиск и теги в блоге, прогресс чтения, оглавление по <code>h2</code>, копирование ссылки, горячие клавиши <kbd>/</kbd> и <kbd>?</kbd>.</p>
+      <p><strong>Исходники.</strong> <a href="https://github.com/Voynere/Voynere.github.io">github.com/Voynere/Voynere.github.io</a></p>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -102,6 +63,7 @@
       <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
       <a href="/now/">Сейчас</a>
       <a href="/uses/">Инструменты</a>
+      <a href="/colophon/">Колофон</a>
       <a href="/rss.xml">RSS</a>
       <a href="/atom.xml">Atom</a>
       <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
@@ -112,3 +74,4 @@
   <script src="/assets/app.js" defer></script>
 </body>
 </html>
+

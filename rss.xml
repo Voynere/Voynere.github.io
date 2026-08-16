@@ -7,6 +7,14 @@
     <language>ru</language>
     <atom:link href="https://voynere.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
+    
+    <item>
+      <title>Ferma DV: BFF на WordPress</title>
+      <link>https://voynere.github.io/blog/ferma-dv-bff/</link>
+      <guid>https://voynere.github.io/blog/ferma-dv-bff/</guid>
+      <pubDate>Sat, 16 Aug 2026 14:00:00 +0000</pubDate>
+      <description>Контракт под экран мобильного каталога, а не под админку CMS.</description>
+    </item>
     <item>
       <title>Идемпотентность в Symfony Messenger</title>
       <link>https://voynere.github.io/blog/symfony-messenger-idempotency/</link>

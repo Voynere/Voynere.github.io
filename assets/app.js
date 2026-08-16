@@ -308,27 +308,53 @@
   }
 
   const postBody = document.querySelector(".post-body");
-  if (postBody && postHeader) {
-    const headings = [...postBody.querySelectorAll("h2")];
-    if (headings.length >= 2) {
-      const toc = document.createElement("nav");
-      toc.className = "toc";
-      toc.setAttribute("aria-label", "Содержание");
-      const list = document.createElement("ol");
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = `section-${index + 1}`;
-        }
-        const item = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = `#${heading.id}`;
-        link.textContent = heading.textContent || `Раздел ${index + 1}`;
-        item.appendChild(link);
-        list.appendChild(item);
-      });
-      toc.innerHTML = "<p class=\"toc-label\">Содержание</p>";
-      toc.appendChild(list);
-      postHeader.insertAdjacentElement("afterend", toc);
+  if (postBody) {
+    const readTime = document.querySelector(".read-time");
+    if (readTime) {
+      const words = (postBody.textContent || "").trim().split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(1, Math.round(words / 180));
+      readTime.textContent = `${minutes} мин чтения`;
+    }
+
+    if (postHeader) {
+      const headings = [...postBody.querySelectorAll("h2")];
+      if (headings.length >= 2) {
+        const toc = document.createElement("nav");
+        toc.className = "toc";
+        toc.setAttribute("aria-label", "Содержание");
+        const list = document.createElement("ol");
+        const links = [];
+        headings.forEach((heading, index) => {
+          if (!heading.id) {
+            heading.id = `section-${index + 1}`;
+          }
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `#${heading.id}`;
+          link.textContent = heading.textContent || `Раздел ${index + 1}`;
+          item.appendChild(link);
+          list.appendChild(item);
+          links.push(link);
+        });
+        toc.innerHTML = "<p class=\"toc-label\">Содержание</p>";
+        toc.appendChild(list);
+        postHeader.insertAdjacentElement("afterend", toc);
+
+        const spyToc = () => {
+          const marker = window.scrollY + window.innerHeight * 0.22;
+          let current = headings[0]?.id;
+          headings.forEach((heading) => {
+            if (heading.offsetTop <= marker) {
+              current = heading.id;
+            }
+          });
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${current}`);
+          });
+        };
+        spyToc();
+        window.addEventListener("scroll", spyToc, { passive: true });
+      }
     }
   }
 

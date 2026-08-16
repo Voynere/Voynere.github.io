@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferma DV: BFF на WordPress — Voynere</title>
+  <meta name="description" content="Почему мобильный каталог Ferma DV ходит в WordPress-BFF, а не в админские REST-эндпоинты.">
+  <link rel="canonical" href="https://voynere.github.io/blog/ferma-dv-bff/">
+  <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
+  <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:image" content="https://voynere.github.io/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voynere.github.io/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Ferma DV: BFF на WordPress",
+    "description": "Почему мобильный каталог Ferma DV ходит в WordPress-BFF, а не в админские REST-эндпоинты.",
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16",
+    "author": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
+    "publisher": {"@type": "Person", "name": "Eugene Voyner", "url": "https://voynere.github.io/"},
+    "mainEntityOfPage": "https://voynere.github.io/blog/ferma-dv-bff/",
+    "image": "https://voynere.github.io/og.png",
+    "inLanguage": "ru"
+  }
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header">
+    <a class="brand" href="/">Voynere</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Меню</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Разделы">
+      <a href="/#work">Работа</a>
+      <a href="/#experience">Опыт</a>
+      <a href="/blog/">Блог</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/uses/">Инструменты</a>
+      <a href="/#contact">Контакт</a>
+      <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <article class="post" data-tags="wordpress react-native mobile product">
+      <header class="post-header">
+        <p class="eyebrow"><a href="/blog/">Блог</a></p>
+        <p class="series"><a href="/blog/series/ferma-dv/">Серия Ferma DV</a> · <a href="/blog/ferma-dv-react-native/">1. Обзор</a> · <a href="/blog/ferma-dv-delivery-stock/">2. Доставка</a> · <a href="/blog/ferma-dv-bff/">3. BFF</a></p>
+        <h1>Ferma DV: BFF на WordPress</h1>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">3 мин чтения</span></p>
+        <p class="post-tags"><a href="/blog/?tag=wordpress">wordpress</a> · <a href="/blog/?tag=react-native">react-native</a> · <a href="/blog/?tag=mobile">mobile</a> · <a href="/blog/?tag=product">product</a></p>
+      </header>
+
+      <div class="post-body">
+        <h2>Зачем BFF</h2>
+        <p>Мобильному клиенту не нужны админские типы, пагинация WP и «сырой» МойСклад. Нужен контракт под экран: категория, карточка, остатки по зоне, промо. WordPress здесь — не витрина, а <strong>BFF</strong>: собирает и отдаёт JSON под React Native.</p>
+        <h2>Граница ответственности</h2>
+        <p>На сервере: склейка каталога, нормализация остатков, правила доставки, авторизация сессии. На клиенте: кэш Zustand, UI, геозона (turf), offline‑устойчивость. Если BFF начнёт отдавать «как в админке», клиент расползётся в мапперы.</p>
+        <h2>Кэш и инвалидация</h2>
+        <p>Каталог и остатки живут на коротком TTL плюс явный сброс при смене зоны доставки. Иначе после <code>changeDelivery</code> пользователь видит чужой склад — об этом отдельно в <a href="/blog/ferma-dv-delivery-stock/">доставке и остатках</a>.</p>
+        <h2>Правило контракта</h2>
+        <p>Эндпоинт называется по задаче экрана (<code>/mobile/catalog</code>), а не по сущности CMS. Версионирую поля осторожно: ломать RN‑релиз из‑за переименования в WP — дорого. Лучше аддитивные поля и явный deprecation.</p>
+      </div>
+
+      <aside class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Ещё по теме</h2>
+        <ul>
+          <li><a href="/blog/ferma-dv-react-native/">React Native: опыт Ferma DV</a></li>
+          <li><a href="/blog/ferma-dv-delivery-stock/">Ferma DV: доставка и остатки</a></li>
+          <li><a href="/blog/wordpress-bitrix-custom/">Кастом под WordPress и Битрикс</a></li>
+        </ul>
+      </aside>
+      <p class="post-nav">
+        <span class="post-nav-prev"></span>
+        <a class="post-nav-index" href="/blog/">Все записи</a>
+        <a class="post-nav-next" href="/blog/symfony-messenger-idempotency/">Идемпотентность в Symfony Messenger →</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Voynere</p>
+    <p class="footer-copy">© <span id="year"></span> Eugene Voyner</p>
+    <div class="footer-links">
+      <a href="https://lighttread.ru" rel="noopener noreferrer" target="_blank">Lighttread</a>
+      <a href="/now/">Сейчас</a>
+      <a href="/uses/">Инструменты</a>
+      <a href="/colophon/">Колофон</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="/atom.xml">Atom</a>
+      <a href="https://github.com/Voynere/Voynere.github.io" rel="noopener noreferrer" target="_blank">Исходники</a>
+      <a href="mailto:info@lighttread.ru">Email</a>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
+

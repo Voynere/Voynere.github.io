@@ -1567,6 +1567,24 @@ body.nav-open .nav-toggle-bars::after {
   color: var(--accent-deep);
 }
 
+.toc a.is-active {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+.not-found-links {
+  margin-top: 0.5rem;
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--panel-solid);
+}
+
 .series-list .muted {
   display: block;
   color: var(--ink-soft);

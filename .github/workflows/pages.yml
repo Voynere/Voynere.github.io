@@ -30,6 +30,7 @@ jobs:
           cp -R blog _site/blog
           cp -R now _site/now
           cp -R uses _site/uses
+          cp -R colophon _site/colophon
           cp -R .well-known _site/.well-known
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
