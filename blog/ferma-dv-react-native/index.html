@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>React Native: опыт Ferma DV — Voynere</title>
-  <meta name="description" content="Каталог, доставка, бонусы и BFF — мобильный e‑commerce фермы.">
+  <meta name="description" content="BFF-каталог, зоны доставки, FCM и релизы — React Native e‑commerce Ferma DV.">
   <link rel="canonical" href="https://voynere.github.io/blog/ferma-dv-react-native/">
   <link rel="alternate" type="application/rss+xml" title="Voynere — заметки" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="Voynere — Atom" href="/atom.xml">
@@ -23,7 +23,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "React Native: опыт Ferma DV",
-    "description": "Каталог, доставка, бонусы и BFF — мобильный e‑commerce фермы.",
+    "description": "BFF-каталог, зоны доставки, FCM и релизы — React Native e‑commerce Ferma DV.",
     "datePublished": "2026-08-16",
     "dateModified": "2026-08-16",
     "author": {
@@ -55,6 +55,7 @@
     </button>
     <nav class="nav" id="site-nav" aria-label="Разделы">
       <a href="/#work">Работа</a>
+      <a href="/#experience">Опыт</a>
       <a href="/blog/">Блог</a>
       <a href="/#contact">Контакт</a>
       <a href="https://github.com/Voynere" rel="noopener noreferrer" target="_blank">GitHub</a>
@@ -66,21 +67,17 @@
       <header class="post-header">
         <p class="eyebrow"><a href="/blog/">Блог</a></p>
         <h1>React Native: опыт Ferma DV</h1>
-        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">1 мин чтения</span></p>
+        <p class="post-meta"><time datetime="2026-08-16">16 августа 2026</time> · <span class="read-time">3 мин чтения</span></p>
         <p class="post-tags"><a href="/blog/?tag=react-native">react-native</a> · <a href="/blog/?tag=typescript">typescript</a> · <a href="/blog/?tag=mobile">mobile</a> · <a href="/blog/?tag=product">product</a></p>
       </header>
 
       <div class="post-body">
-<p><a href="https://github.com/Voynere/ferma-dv-app">Ferma DV App</a> — React Native‑клиент фермерского e‑commerce: каталог молочки и сопутствующих товаров, корзина, оформление, зоны доставки, бонусная программа и push.</p>
-        <p>Стек на клиенте: <strong>React Native 0.81</strong>, TypeScript, React Navigation, Zustand, Firebase (Messaging + Crashlytics), Keychain, turf для проверки адреса в полигоне доставки.</p>
-        <p>Что важно по опыту:</p>
-        <ul>
-          <li>тяжёлую сборку каталога (остатки, акции, картинки) держим на <strong>BFF</strong>, а не в телефоне — на устройстве тонкий page‑cache в Zustand;</li>
-          <li>смена зоны доставки сбрасывает кэш: иначе пользователь видит чужие остатки и цены;</li>
-          <li>картинки идут через <code>OptimizedImage</code> с URL из BFF; пер‑карточечный resolve в МойСклад — только fallback;</li>
-          <li>отдельные контуры: SMS/OTP‑вход, бонусы, подписка на наличие, напоминания о подарках, сборки APK/AAB/IPA.</li>
-        </ul>
-        <p>Вывод простой: мобильный e‑commerce живёт или умирает на границе «телефон ↔ бэкенд». Если агрегировать каталог на устройстве — FPS и батарея страдают. Если отдать агрегацию BFF и оставить UI быстрым — продукт ощущается цельным.</p>
+        <p><a href="https://github.com/Voynere/ferma-dv-app">Ferma DV App</a> — React Native‑клиент фермерского e‑commerce на <a href="https://ferma-dv.ru">ferma-dv.ru</a>: каталог, корзина, checkout, зоны доставки, бонусы и push.</p>
+        <p>Стек на клиенте: <strong>React Native 0.81</strong>, TypeScript, React Navigation, Zustand, Firebase Messaging + Crashlytics, Keychain, turf для «точка в полигоне» зоны доставки.</p>
+        <p><strong>BFF, а не телефон.</strong> Агрегация каталога (МойСклад + остатки WP + акции Kilbil + URL картинок) идёт на бэке: <code>/mobile/catalog/products</code>, <code>/mobile/catalog/actions</code>. В приложении — тонкий page‑cache в Zustand. Смена доставки вызывает <code>clearProductsCache()</code>: иначе на экране чужой склад и чужие цены.</p>
+        <p><strong>Доставка и адрес.</strong> Адрес и тип доставки живут в AsyncStorage; UI не пускает в каталог «вслепую», пока зона не выбрана. Гео‑проверка через turf отсекает адреса вне полигона до того, как пользователь набьёт корзину.</p>
+        <p><strong>Push и релизы.</strong> FCM через Firebase: на Android 13+ разрешение на уведомления отдельно от регистрации токена; refresh токена сразу уходит на сервер. Сборки — <code>apk</code> / <code>aab</code> / <code>ipa</code> скриптами в репо, плюс проверка signing перед релизом.</p>
+        <p><strong>Вывод.</strong> Мобильный e‑commerce упирается в границу «телефон ↔ бэкенд». Если собирать каталог на устройстве — страдают FPS и батарея. Если отдать агрегацию BFF и оставить UI быстрым — продукт ощущается цельным, а баги склада не маскируются кэшем в кармане.</p>
       </div>
 
             <aside class="related" aria-labelledby="related-title">

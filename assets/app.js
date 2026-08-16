@@ -91,7 +91,7 @@
     });
   }
 
-  const sectionIds = ["work", "blog", "about", "contact"];
+  const sectionIds = ["work", "experience", "blog", "about", "contact"];
   const sectionLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
   if (sectionLinks.length && sectionIds.some((id) => document.getElementById(id))) {
     const sections = sectionIds
@@ -145,7 +145,7 @@
   }
 
   const revealTargets = document.querySelectorAll(
-    ".project, .note, .facts > div, .contact-item, .section-head"
+    ".project, .note, .facts > div, .contact-item, .section-head, .experience-item"
   );
   if ("IntersectionObserver" in window && revealTargets.length > 0) {
     const style = document.createElement("style");

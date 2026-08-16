@@ -11,7 +11,7 @@
     <link href="https://voynere.github.io/blog/ferma-dv-react-native/" rel="alternate" type="text/html"/>
     <id>https://voynere.github.io/blog/ferma-dv-react-native/</id>
     <updated>2026-08-16T12:00:00+10:00</updated>
-    <summary>Ferma DV App — React Native‑клиент фермерского e‑commerce: каталог молочки и сопутствующих товаров, корзина, оформление, зоны доставки, бонусная программа и push. Стек на клиенте: React Native 0.81 , TypeScript, React Navigation, Zustand, Firebase (Messaging + Crashlytics), Keych</summary>
+    <summary>Ferma DV App — React Native‑клиент фермерского e‑commerce на ferma-dv.ru : каталог, корзина, checkout, зоны доставки, бонусы и push. Стек на клиенте: React Native 0.81 , TypeScript, React Navigation, Zustand, Firebase Messaging + Crashlytics, Keychain, turf для «точка в полигоне» зоны доставки. BFF,</summary>
     <author><name>Eugene Voyner</name></author>
   </entry>
   <entry>
