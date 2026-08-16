@@ -306,4 +306,19 @@
     });
     postHeader.appendChild(button);
   }
+
+  const topBtn = document.createElement("button");
+  topBtn.type = "button";
+  topBtn.className = "to-top";
+  topBtn.setAttribute("aria-label", "Наверх");
+  topBtn.innerHTML = '<span aria-hidden="true">↑</span>';
+  document.body.appendChild(topBtn);
+  const syncTop = () => {
+    topBtn.classList.toggle("is-visible", window.scrollY > 480);
+  };
+  syncTop();
+  window.addEventListener("scroll", syncTop, { passive: true });
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 })();
